@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 
 public class IPCProject extends Application {
-    //keloke ermano
+    //keloke ermano as
     @Override
     public void start(Stage stage) throws Exception {
         //======================================================================
