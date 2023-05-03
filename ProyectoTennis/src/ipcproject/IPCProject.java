@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -28,6 +29,7 @@ public class IPCProject extends Application {
         //     - se muestra el stage de manera no modal mediante el metodo show()
         stage.setScene(scene);
         stage.setTitle("Tennis administrator master 2000 ULTRA");
+        stage.getIcons().add(new Image("/images/logo.png"));
         stage.show();
     }
 
