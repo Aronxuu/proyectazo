@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
@@ -16,18 +17,36 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="1331.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="archivosfxml.PistasController">
    <children>
+      <Button fx:id="button16" alignment="TOP_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="46.0" prefWidth="46.0">
+         <graphic>
+            <ImageView fx:id="img11" fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logo.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <VBox.margin>
+            <Insets left="1250.0" top="30.0" />
+         </VBox.margin>
+      </Button>
       <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.0" prefWidth="1189.0">
          <children>
             <TabPane prefHeight="643.0" prefWidth="251.0" tabClosingPolicy="UNAVAILABLE">
                <tabs>
                   <Tab text="Book a court">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ListView prefHeight="625.0" prefWidth="260.0" />
+                           </children></AnchorPane>
                      </content>
                   </Tab>
                   <Tab text="My bookings">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="614.0" prefWidth="270.0" />
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="614.0" prefWidth="270.0">
+                           <children>
+                              <ListView layoutX="-11.0" layoutY="-1.0" prefHeight="658.0" prefWidth="264.0" />
+                           </children></AnchorPane>
                      </content>
                   </Tab>
                </tabs>
@@ -72,7 +91,10 @@
                         </Button>
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin></VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
                         <Label text="5" />
@@ -130,10 +152,13 @@
                      </children>
                   </VBox>
                </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
             </GridPane>
          </children>
          <VBox.margin>
-            <Insets left="50.0" right="50.0" top="60.0" />
+            <Insets left="60.0" right="30.0" top="40.0" />
          </VBox.margin>
       </HBox>
    </children>
