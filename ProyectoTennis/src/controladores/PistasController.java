@@ -5,14 +5,20 @@
  */
 package controladores;
 
+import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.DateCell;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-
+import model.*;
+import static model.Club.getInstance;
 /**
  * FXML Controller class
  *
@@ -60,13 +66,39 @@ public class PistasController implements Initializable {
     private Button button3;
     @FXML
     private Button button6;
-
+    @FXML
+    private DatePicker dpBookingDay;
+    
+    /*
+    *   Variables de objetos
+    */
+       private Club club;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+/*
+         
+        club.getCourtBookings("nombre pista", );
+        club.getBookings();
+        club = Club.getInstance();
+   */     
+
+        dpBookingDay.setDayCellFactory((DatePicker picker) -> {
+        return new DateCell() {
+        @Override
+        public void updateItem(LocalDate date, boolean empty) {
+            super.updateItem(date, empty);
+            LocalDate today = LocalDate.now();
+            setDisable(empty || date.compareTo(today) < 0 );
+             }
+            };
+        });
+        
+        
+
     }    
     
 }
