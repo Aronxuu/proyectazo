@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 /**
@@ -28,25 +29,37 @@ public class PistasController implements Initializable {
     @FXML
     private ImageView img1;
     @FXML
-    private Button button11;
-    @FXML
     private ImageView img2;
-    @FXML
-    private Button button12;
     @FXML
     private ImageView img5;
     @FXML
-    private Button button13;
-    @FXML
     private ImageView img4;
-    @FXML
-    private Button button14;
     @FXML
     private ImageView img3;
     @FXML
-    private Button button15;
-    @FXML
     private ImageView img6;
+    @FXML
+    private Label reserve1;
+    @FXML
+    private Label reserve2;
+    @FXML
+    private Label reserve5;
+    @FXML
+    private Label reserve4;
+    @FXML
+    private Label reserve3;
+    @FXML
+    private Label reserve6;
+    @FXML
+    private Button button2;
+    @FXML
+    private Button button5;
+    @FXML
+    private Button button4;
+    @FXML
+    private Button button3;
+    @FXML
+    private Button button6;
 
     /**
      * Initializes the controller class.

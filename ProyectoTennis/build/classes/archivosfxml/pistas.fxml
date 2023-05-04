@@ -17,27 +17,31 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="1331.0" styleClass="mainbackground" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.PistasController">
    <children>
-      <Button fx:id="button16" alignment="TOP_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="46.0" prefWidth="46.0">
-         <graphic>
-            <ImageView fx:id="img11" fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/logo.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <VBox.margin>
-            <Insets left="1250.0" top="30.0" />
-         </VBox.margin>
-      </Button>
-      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.0" prefWidth="1189.0">
+      <HBox alignment="TOP_RIGHT" prefHeight="50.0" prefWidth="1331.0" VBox.vgrow="ALWAYS">
          <children>
-            <TabPane prefHeight="643.0" prefWidth="251.0" tabClosingPolicy="UNAVAILABLE">
+            <Button fx:id="button16" alignment="TOP_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="46.0" prefWidth="46.0">
+               <graphic>
+                  <ImageView fx:id="img11" fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/logo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets right="30.0" top="30.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="668.0" prefWidth="1221.0" VBox.vgrow="ALWAYS">
+         <children>
+            <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.0" prefWidth="251.0" tabClosingPolicy="UNAVAILABLE">
                <tabs>
                   <Tab text="Book a court">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <ListView prefHeight="625.0" prefWidth="260.0" />
+                              <ListView prefHeight="656.0" prefWidth="251.0" />
                            </children></AnchorPane>
                      </content>
                   </Tab>
@@ -45,13 +49,13 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="614.0" prefWidth="270.0">
                            <children>
-                              <ListView layoutX="-11.0" layoutY="-1.0" prefHeight="658.0" prefWidth="264.0" />
+                              <ListView maxWidth="1.7976931348623157E308" prefHeight="656.0" prefWidth="251.0" />
                            </children></AnchorPane>
                      </content>
                   </Tab>
                </tabs>
             </TabPane>
-            <GridPane alignment="TOP_RIGHT" prefHeight="643.0" prefWidth="934.0">
+            <GridPane alignment="TOP_RIGHT" prefHeight="684.0" prefWidth="929.0" HBox.hgrow="ALWAYS">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -75,12 +79,13 @@
                               </ImageView>
                            </graphic>
                         </Button>
+                        <Label fx:id="reserve1" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                      <children>
                         <Label text="2" />
-                        <Button fx:id="button11" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
+                        <Button fx:id="button2" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
                            <graphic>
                               <ImageView fx:id="img2" fitHeight="228.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -89,16 +94,13 @@
                               </ImageView>
                            </graphic>
                         </Button>
+                        <Label fx:id="reserve2" />
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin></VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
                         <Label text="5" />
-                        <Button fx:id="button12" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
+                        <Button fx:id="button5" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
                            <graphic>
                               <ImageView fx:id="img5" fitHeight="228.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -107,12 +109,13 @@
                               </ImageView>
                            </graphic>
                         </Button>
+                        <Label fx:id="reserve5" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
                      <children>
                         <Label text="4" />
-                        <Button fx:id="button13" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
+                        <Button fx:id="button4" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
                            <graphic>
                               <ImageView fx:id="img4" fitHeight="228.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -121,12 +124,13 @@
                               </ImageView>
                            </graphic>
                         </Button>
+                        <Label fx:id="reserve4" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
                      <children>
                         <Label text="3" />
-                        <Button fx:id="button14" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
+                        <Button fx:id="button3" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
                            <graphic>
                               <ImageView fx:id="img3" fitHeight="228.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -135,12 +139,13 @@
                               </ImageView>
                            </graphic>
                         </Button>
+                        <Label fx:id="reserve3" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <children>
                         <Label text="6" />
-                        <Button fx:id="button15" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
+                        <Button fx:id="button6" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
                            <graphic>
                               <ImageView fx:id="img6" fitHeight="228.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -149,6 +154,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
+                        <Label fx:id="reserve6" />
                      </children>
                   </VBox>
                </children>
@@ -158,8 +164,9 @@
             </GridPane>
          </children>
          <VBox.margin>
-            <Insets left="60.0" right="30.0" top="40.0" />
+            <Insets left="80.0" />
          </VBox.margin>
       </HBox>
+      <HBox alignment="TOP_RIGHT" prefHeight="50.0" prefWidth="1331.0" VBox.vgrow="ALWAYS" />
    </children>
 </VBox>
