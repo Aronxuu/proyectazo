@@ -76,7 +76,7 @@
                            <font>
                               <Font name="Arial Rounded MT Bold" size="18.0" />
                            </font></Label>
-                        <Button fx:id="button1" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
+                        <Button fx:id="button1" mnemonicParsing="false" onMouseEntered="#enterButton" prefHeight="104.0" prefWidth="27.0">
                            <graphic>
                               <ImageView fx:id="img1" fitHeight="228.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -95,7 +95,7 @@
                               <Font name="Arial Rounded MT Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Button fx:id="button2" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
+                        <Button fx:id="button2" mnemonicParsing="false" onMouseEntered="#enterButton" prefHeight="104.0" prefWidth="27.0">
                            <graphic>
                               <ImageView fx:id="img2" fitHeight="228.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -114,7 +114,7 @@
                               <Font name="Arial Rounded MT Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Button fx:id="button5" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
+                        <Button fx:id="button5" mnemonicParsing="false" onMouseEntered="#enterButton" prefHeight="104.0" prefWidth="27.0">
                            <graphic>
                               <ImageView fx:id="img5" fitHeight="228.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -133,7 +133,7 @@
                               <Font name="Arial Rounded MT Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Button fx:id="button4" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
+                        <Button fx:id="button4" mnemonicParsing="false" onMouseEntered="#enterButton" prefHeight="104.0" prefWidth="27.0">
                            <graphic>
                               <ImageView fx:id="img4" fitHeight="228.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -152,7 +152,7 @@
                               <Font name="Arial Rounded MT Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Button fx:id="button3" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
+                        <Button fx:id="button3" mnemonicParsing="false" onMouseEntered="#enterButton" prefHeight="104.0" prefWidth="27.0">
                            <graphic>
                               <ImageView fx:id="img3" fitHeight="228.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -171,7 +171,7 @@
                               <Font name="Arial Rounded MT Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Button fx:id="button6" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
+                        <Button fx:id="button6" mnemonicParsing="false" onMouseEntered="#enterButton" prefHeight="104.0" prefWidth="27.0">
                            <graphic>
                               <ImageView fx:id="img6" fitHeight="228.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

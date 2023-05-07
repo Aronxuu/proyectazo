@@ -21,6 +21,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
+import javafx.scene.ImageCursor;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
@@ -30,6 +33,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import model.*;
 import static model.Club.getInstance;
@@ -103,6 +107,7 @@ public class PistasController implements Initializable {
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         try {
             club = getInstance();
         } catch (ClubDAOException ex) {
@@ -180,32 +185,32 @@ public class PistasController implements Initializable {
                switch(number){
                    case "0":
                        img1.setImage(new Image("/images/pistaroja.png"));
-                       button1.setDisable(true);
+                       //button1.setDisable(true);
                        button1.setOpacity(disabledOpacity);
                        break;
                     case "1":
                         img2.setImage(new Image("/images/pistaroja.png"));
-                        button2.setDisable(true);
+                        //button2.setDisable(true);
                         button2.setOpacity(disabledOpacity);
                        break;
                     case "2":
                        img3.setImage(new Image("/images/pistaroja.png"));
-                       button3.setDisable(true);
+                       //button3.setDisable(true);
                        button3.setOpacity(disabledOpacity);
                        break;
                     case "3":
                        img4.setImage(new Image("/images/pistaroja.png"));
-                       button4.setDisable(true);
+                       //button4.setDisable(true);
                        button4.setOpacity(disabledOpacity);
                        break;
                     case "4":
                        img5.setImage(new Image("/images/pistaroja.png"));
-                       button5.setDisable(true);
+                       //button5.setDisable(true);
                        button5.setOpacity(disabledOpacity);
                        break;
                     case "5":
                        img6.setImage(new Image("/images/pistaroja.png"));
-                       button6.setDisable(true);
+                       //button6.setDisable(true);
                        button6.setOpacity(disabledOpacity);
                        break;
                     
@@ -221,12 +226,14 @@ public class PistasController implements Initializable {
         img4.setImage(new Image("/images/pistaverde.png"));
         img5.setImage(new Image("/images/pistaverde.png"));
         img6.setImage(new Image("/images/pistaverde.png"));
+        /*
         button1.setDisable(false);
         button2.setDisable(false);
         button3.setDisable(false);
-        button4.setDisable(false);
+        button4.setDisable(false); 
         button5.setDisable(false);
         button6.setDisable(false);
+        */
         button1.setOpacity(1);
         button2.setOpacity(1);
         button3.setOpacity(1);
@@ -236,4 +243,50 @@ public class PistasController implements Initializable {
         
         
     }
+
+    @FXML
+    private void enterButton(MouseEvent event) {//este metodo cambia el cursor dependiendo de la disponibilidad de la pista
+        Cursor disabledCursor = new ImageCursor(new Image("/images/cursornodisponible.png"));
+        System.out.println("dentro");
+        if (event.getSource() == button1) {
+            if(button1.getOpacity()==disabledOpacity){
+            button1.setCursor(disabledCursor);
+            }else{
+            button1.setCursor(Cursor.HAND);    
+        }
+        } else if (event.getSource() == button2) {
+            if(button2.getOpacity()==disabledOpacity){
+            button2.setCursor(disabledCursor);
+            }else{
+            button2.setCursor(Cursor.HAND);    
+        }
+        } else if (event.getSource() == button3) {
+            if(button3.getOpacity()==disabledOpacity){
+            button3.setCursor(disabledCursor);
+            }else{
+            button3.setCursor(Cursor.HAND);    
+        }
+        } else if (event.getSource() == button4) {
+            if(button4.getOpacity()==disabledOpacity){
+            button4.setCursor(disabledCursor);
+            }else{
+            button4.setCursor(Cursor.HAND);    
+        }
+        } else if (event.getSource() == button5) {
+            if(button5.getOpacity()==disabledOpacity){
+            button5.setCursor(disabledCursor);
+            }else{
+            button5.setCursor(Cursor.HAND);    
+        }
+        } else if (event.getSource() == button6) {
+            if(button6.getOpacity()==disabledOpacity){
+            button6.setCursor(disabledCursor);
+            }else{
+            button6.setCursor(Cursor.HAND);    
+        }
+        }
+    }
+
+
+
 }
