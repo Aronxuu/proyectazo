@@ -153,6 +153,7 @@ public class PistasController implements Initializable {
 
     @FXML
     private void updateSelection(MouseEvent event) {
+        setCourtsGreen();
         System.out.println(bookingsListView.getSelectionModel().getSelectedIndex());
         int index = bookingsListView.getSelectionModel().getSelectedIndex();
         LocalDate forDay = dpBookingDay.valueProperty().get();
@@ -197,5 +198,14 @@ public class PistasController implements Initializable {
            }
            
         }
+    }
+    private void setCourtsGreen(){
+        img1.setImage(new Image("/images/pistaverde.png"));
+        img2.setImage(new Image("/images/pistaverde.png"));
+        img3.setImage(new Image("/images/pistaverde.png"));
+        img4.setImage(new Image("/images/pistaverde.png"));
+        img5.setImage(new Image("/images/pistaverde.png"));
+        img6.setImage(new Image("/images/pistaverde.png"));
+        
     }
 }
