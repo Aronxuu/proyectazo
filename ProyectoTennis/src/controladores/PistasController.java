@@ -21,9 +21,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.ImageCursor;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DateCell;
@@ -36,6 +38,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import model.*;
 import static model.Club.getInstance;
 /**
@@ -105,7 +109,7 @@ public class PistasController implements Initializable {
     private Label courtname;
     @FXML
     private Label clubname;
-
+    private Member member1,member2,member3,member4,member5,member6;
     //=========================================================
     // DEBEN conincidir los tipo del ListView y de la lista observable
    
@@ -192,31 +196,38 @@ public class PistasController implements Initializable {
                    case "0":
                        img1.setImage(new Image("/images/pistaroja.png"));
                        //button1.setDisable(true);
+                       member1 = b.getMember();
                        button1.setOpacity(disabledOpacity);
                        break;
                     case "1":
                         img2.setImage(new Image("/images/pistaroja.png"));
                         //button2.setDisable(true);
+                        member2 = b.getMember();
                         button2.setOpacity(disabledOpacity);
                        break;
                     case "2":
                        img3.setImage(new Image("/images/pistaroja.png"));
                        //button3.setDisable(true);
+                       member3 = b.getMember();
                        button3.setOpacity(disabledOpacity);
                        break;
                     case "3":
                        img4.setImage(new Image("/images/pistaroja.png"));
                        //button4.setDisable(true);
+                       member4 = b.getMember();
+                       System.out.println(member4.getNickName());
                        button4.setOpacity(disabledOpacity);
                        break;
                     case "4":
                        img5.setImage(new Image("/images/pistaroja.png"));
                        //button5.setDisable(true);
+                       member5 = b.getMember();
                        button5.setOpacity(disabledOpacity);
                        break;
                     case "5":
                        img6.setImage(new Image("/images/pistaroja.png"));
                        //button6.setDisable(true);
+                       member6 = b.getMember();
                        button6.setOpacity(disabledOpacity);
                        break;
                     
@@ -298,14 +309,50 @@ public class PistasController implements Initializable {
     }
 
     @FXML
-    private void clickedCourt(ActionEvent event) {
+    private void clickedCourt(ActionEvent event) throws IOException {
         if(bookingsListView.getSelectionModel().getSelectedIndex()!=-1){
+        if(event.getSource() instanceof Button){
+            Button unavailable = (Button)event.getSource();
+            if(unavailable.getOpacity()==disabledOpacity){//Si el botón no está disponible...
             System.out.println("Hour chosen");
+            
+         FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/archivosfxml/pistanodisponible.fxml"));
+         Stage stage = new Stage();
+         Parent root = miCargador.load();
+         PistaNoDisponibleController controlPopUp = miCargador.getController();
+         Member reservador = getMemberOfClickedCourt(event);
+         controlPopUp.initializePopUp(reservador);
+         Scene scene = new Scene(root, 300, 200);
+         stage.setScene(scene);
+         stage.setTitle("Court unavailable");
+         stage.initModality(Modality.APPLICATION_MODAL);
+         stage.showAndWait();
+            }else{//Si el botón está disponible
+                
+            }
+        }
         }else{
             System.out.println("Choose an hour");
         }
     }
 
-
+    private Member getMemberOfClickedCourt(ActionEvent event){
+        if (event.getSource() == button1) {
+            return member1;
+        
+        } else if (event.getSource() == button2) {
+            return member2;  
+        
+        } else if (event.getSource() == button3) {
+            return member3;
+        } else if (event.getSource() == button4) {
+            return member4;
+        } else if (event.getSource() == button5) {
+            return member5;
+        } else if (event.getSource() == button6) {
+            return member6;
+        }
+        else{return null;}
+    }
 
 }

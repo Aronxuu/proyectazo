@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.PistaNoDisponibleController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="321.0" prefWidth="373.0" spacing="12.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" />
+            <Label prefHeight="17.0" prefWidth="275.0" text="You cant book this court because it is not available" />
+            <Label fx:id="userBooker" text="Court under mantainance" />
+            <Button fx:id="buttonClick" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="77.0" text="Close" />
+            <Label fx:id="labelMessage" lineSpacing="4.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" textAlignment="CENTER" wrapText="true" />
+            <HBox prefHeight="100.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+   </children>
+</HBox>
