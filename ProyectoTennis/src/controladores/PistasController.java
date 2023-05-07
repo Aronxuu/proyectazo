@@ -45,8 +45,6 @@ import static model.Club.getInstance;
 public class PistasController implements Initializable {
 
     @FXML
-    private Button button16;
-    @FXML
     private ImageView img11;
     @FXML
     private Button button1;
@@ -101,6 +99,8 @@ public class PistasController implements Initializable {
 
     );
     private final double disabledOpacity = 0.8;
+    @FXML
+    private Button buttonProfile;
 
     //=========================================================
     // DEBEN conincidir los tipo del ListView y de la lista observable
@@ -247,7 +247,6 @@ public class PistasController implements Initializable {
     @FXML
     private void enterButton(MouseEvent event) {//este metodo cambia el cursor dependiendo de la disponibilidad de la pista
         Cursor disabledCursor = new ImageCursor(new Image("/images/cursornodisponible.png"));
-        System.out.println("dentro");
         if (event.getSource() == button1) {
             if(button1.getOpacity()==disabledOpacity){
             button1.setCursor(disabledCursor);
@@ -285,6 +284,11 @@ public class PistasController implements Initializable {
             button6.setCursor(Cursor.HAND);    
         }
         }
+    }
+
+    @FXML
+    private void enterProfileButton(MouseEvent event) {
+        buttonProfile.setCursor(Cursor.HAND);
     }
 
 

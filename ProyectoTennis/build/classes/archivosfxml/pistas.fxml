@@ -21,7 +21,7 @@
    <children>
       <HBox alignment="TOP_RIGHT" VBox.vgrow="ALWAYS">
          <children>
-            <Button fx:id="button16" alignment="TOP_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="46.0" prefWidth="46.0">
+            <Button fx:id="buttonProfile" alignment="TOP_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onMouseEntered="#enterProfileButton" prefHeight="46.0" prefWidth="46.0">
                <graphic>
                   <ImageView fx:id="img11" fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                      <image>
