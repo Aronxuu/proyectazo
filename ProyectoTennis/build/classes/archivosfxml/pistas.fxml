@@ -43,7 +43,7 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <DatePicker fx:id="dpBookingDay" prefHeight="39.0" prefWidth="251.0" />
-                              <ListView layoutY="36.0" prefHeight="620.0" prefWidth="251.0" />
+                              <ListView fx:id="bookingsListView" layoutY="38.0" onMouseClicked="#updateSelection" prefHeight="627.0" prefWidth="251.0" />
                            </children></AnchorPane>
                      </content>
                   </Tab>
