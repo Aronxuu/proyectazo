@@ -96,7 +96,7 @@ public class PistasController implements Initializable {
     private final ObservableList<String> listaprincipal = FXCollections.observableArrayList(
 
     );
-    
+    private final double disabledOpacity = 0.8;
 
     //=========================================================
     // DEBEN conincidir los tipo del ListView y de la lista observable
@@ -156,6 +156,7 @@ public class PistasController implements Initializable {
     @FXML
     private void updateSelection(MouseEvent event) {
         setCourtsGreen();
+        
         System.out.println(bookingsListView.getSelectionModel().getSelectedIndex());
         int index = bookingsListView.getSelectionModel().getSelectedIndex();
         LocalDate forDay = dpBookingDay.valueProperty().get();
@@ -179,21 +180,33 @@ public class PistasController implements Initializable {
                switch(number){
                    case "0":
                        img1.setImage(new Image("/images/pistaroja.png"));
+                       button1.setDisable(true);
+                       button1.setOpacity(disabledOpacity);
                        break;
                     case "1":
                         img2.setImage(new Image("/images/pistaroja.png"));
+                        button2.setDisable(true);
+                        button2.setOpacity(disabledOpacity);
                        break;
                     case "2":
                        img3.setImage(new Image("/images/pistaroja.png"));
+                       button3.setDisable(true);
+                       button3.setOpacity(disabledOpacity);
                        break;
                     case "3":
                        img4.setImage(new Image("/images/pistaroja.png"));
+                       button4.setDisable(true);
+                       button4.setOpacity(disabledOpacity);
                        break;
                     case "4":
                        img5.setImage(new Image("/images/pistaroja.png"));
+                       button5.setDisable(true);
+                       button5.setOpacity(disabledOpacity);
                        break;
                     case "5":
                        img6.setImage(new Image("/images/pistaroja.png"));
+                       button6.setDisable(true);
+                       button6.setOpacity(disabledOpacity);
                        break;
                     
                }
@@ -208,6 +221,19 @@ public class PistasController implements Initializable {
         img4.setImage(new Image("/images/pistaverde.png"));
         img5.setImage(new Image("/images/pistaverde.png"));
         img6.setImage(new Image("/images/pistaverde.png"));
+        button1.setDisable(false);
+        button2.setDisable(false);
+        button3.setDisable(false);
+        button4.setDisable(false);
+        button5.setDisable(false);
+        button6.setDisable(false);
+        button1.setOpacity(1);
+        button2.setOpacity(1);
+        button3.setOpacity(1);
+        button4.setOpacity(1);
+        button5.setOpacity(1);
+        button6.setOpacity(1);
+        
         
     }
 }
