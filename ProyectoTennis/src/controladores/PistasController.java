@@ -19,6 +19,7 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
@@ -101,6 +102,9 @@ public class PistasController implements Initializable {
     private final double disabledOpacity = 0.8;
     @FXML
     private Button buttonProfile;
+    private Label courtname;
+    @FXML
+    private Label clubname;
 
     //=========================================================
     // DEBEN conincidir los tipo del ListView y de la lista observable
@@ -115,7 +119,7 @@ public class PistasController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(PistasController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        clubname.setText(club.getName());
         dpBookingDay.setDayCellFactory((DatePicker picker) -> {
         return new DateCell() {
         @Override
@@ -164,6 +168,8 @@ public class PistasController implements Initializable {
         
         System.out.println(bookingsListView.getSelectionModel().getSelectedIndex());
         int index = bookingsListView.getSelectionModel().getSelectedIndex();
+        centerText.setText("CLICK ON A COURT:\n"+(9+index)+":00 - "+(9+index+1)+":00");
+        
         LocalDate forDay = dpBookingDay.valueProperty().get();
         System.out.println(forDay);
         List<Booking> l = club.getForDayBookings(forDay);
@@ -175,7 +181,7 @@ public class PistasController implements Initializable {
             
             courts.get(i).setName(Integer.toString(i));
         }
-        centerText.setText("CLICK ON A COURT:\n"+(9+index)+":00 - "+(9+index+1)+":00");
+
         System.out.println(size);
         for(int i = 0; i<size;i++){
             
@@ -289,6 +295,15 @@ public class PistasController implements Initializable {
     @FXML
     private void enterProfileButton(MouseEvent event) {
         buttonProfile.setCursor(Cursor.HAND);
+    }
+
+    @FXML
+    private void clickedCourt(ActionEvent event) {
+        if(bookingsListView.getSelectionModel().getSelectedIndex()!=-1){
+            System.out.println("Hour chosen");
+        }else{
+            System.out.println("Choose an hour");
+        }
     }
 
 
