@@ -15,6 +15,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="mainbackground" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.PistasController">
    <children>
@@ -71,7 +72,10 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="247.0" prefWidth="312.0">
                      <children>
-                        <Label text="1" />
+                        <Label text="1" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="18.0" />
+                           </font></Label>
                         <Button fx:id="button1" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
                            <graphic>
                               <ImageView fx:id="img1" fitHeight="228.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
@@ -86,7 +90,11 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                      <children>
-                        <Label text="2" />
+                        <Label text="2" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="18.0" />
+                           </font>
+                        </Label>
                         <Button fx:id="button2" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
                            <graphic>
                               <ImageView fx:id="img2" fitHeight="228.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
@@ -101,7 +109,11 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
-                        <Label text="5" />
+                        <Label text="5" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="18.0" />
+                           </font>
+                        </Label>
                         <Button fx:id="button5" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
                            <graphic>
                               <ImageView fx:id="img5" fitHeight="228.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
@@ -116,7 +128,11 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
                      <children>
-                        <Label text="4" />
+                        <Label text="4" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="18.0" />
+                           </font>
+                        </Label>
                         <Button fx:id="button4" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
                            <graphic>
                               <ImageView fx:id="img4" fitHeight="228.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
@@ -131,7 +147,11 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
                      <children>
-                        <Label text="3" />
+                        <Label text="3" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="18.0" />
+                           </font>
+                        </Label>
                         <Button fx:id="button3" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
                            <graphic>
                               <ImageView fx:id="img3" fitHeight="228.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
@@ -146,7 +166,11 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <children>
-                        <Label text="6" />
+                        <Label text="6" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="18.0" />
+                           </font>
+                        </Label>
                         <Button fx:id="button6" mnemonicParsing="false" prefHeight="104.0" prefWidth="27.0">
                            <graphic>
                               <ImageView fx:id="img6" fitHeight="228.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
@@ -157,6 +181,15 @@
                            </graphic>
                         </Button>
                         <Label fx:id="reserve6" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="centerText" alignment="CENTER" contentDisplay="CENTER" text="CHOOSE AN HOUR" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="18.0" />
+                           </font>
+                        </Label>
                      </children>
                   </VBox>
                </children>

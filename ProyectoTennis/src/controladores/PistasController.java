@@ -82,7 +82,8 @@ public class PistasController implements Initializable {
     private Button button6;
     @FXML
     private DatePicker dpBookingDay;
-    
+    @FXML
+    private Label centerText;
     /*
     *   Variables de objetos
     */
@@ -95,6 +96,7 @@ public class PistasController implements Initializable {
     private final ObservableList<String> listaprincipal = FXCollections.observableArrayList(
 
     );
+    
 
     //=========================================================
     // DEBEN conincidir los tipo del ListView y de la lista observable
@@ -167,7 +169,7 @@ public class PistasController implements Initializable {
             
             courts.get(i).setName(Integer.toString(i));
         }
-        
+        centerText.setText("CLICK ON A COURT:\n"+(9+index)+":00 - "+(9+index+1)+":00");
         System.out.println(size);
         for(int i = 0; i<size;i++){
             
