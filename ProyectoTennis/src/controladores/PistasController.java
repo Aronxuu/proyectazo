@@ -8,6 +8,8 @@ package controladores;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -120,7 +122,7 @@ public class PistasController implements Initializable {
          dpBookingDay.setValue(LocalDate.now());
         initializelist();
         
-        
+            
 
     }    
 
@@ -159,11 +161,12 @@ public class PistasController implements Initializable {
         int size =l.size();
         List<Court> courts = club.getCourts();
         int sizec =courts.size();
+        
         for(int i = 0; i<sizec;i++){
             
             courts.get(i).setName(Integer.toString(i));
         }
-
+        
         System.out.println(size);
         for(int i = 0; i<size;i++){
             
