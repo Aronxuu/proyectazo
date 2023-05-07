@@ -117,6 +117,7 @@ public class PistasController implements Initializable {
              }
             };
         });
+         dpBookingDay.setValue(LocalDate.now());
         initializelist();
         
         
