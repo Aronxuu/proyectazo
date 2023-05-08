@@ -5,21 +5,19 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.FXMLSignUpController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.FXMLSignUpController">
    <top>
-      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #0685B0;" BorderPane.alignment="CENTER_LEFT">
+      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #04763D;" BorderPane.alignment="CENTER_LEFT">
          <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" wrappingWidth="202.93674087524414">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="User Login" textAlignment="CENTER" wrappingWidth="1237.9367408752441">
                <font>
-                  <Font name="Arial Rounded MT Bold" size="41.0" />
+                  <Font name="Arial Rounded MT Bold" size="66.0" />
                </font>
                <HBox.margin>
                   <Insets />
@@ -34,81 +32,94 @@
          </padding>
       </HBox>
    </top>
-   <bottom>
-      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+   <center>
+      <VBox BorderPane.alignment="CENTER">
          <children>
-            <Button minWidth="80.0" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #0685B0;" text="Login" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../LAB/Pract2/Sign_Up/src/icons/accept_white.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </HBox.margin>
+            <VBox prefHeight="90.0" />
+            <Label fx:id="pwdError" text="The password doesn't coincide with the Nickname given, please try again" textFill="#ca0505" visible="false" wrapText="true">
                <font>
-                  <Font size="14.0" />
+                  <Font size="21.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="279.0" prefWidth="364.0">
+                     <children>
+                        <Label text="Nickname:" textFill="#04763d">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="20.0" />
+                           </font></Label>
+                        <TextField fx:id="emailInput" promptText="Write here your nickname">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="20.0" />
+                           </font></TextField>
+                     </children>
+                  </VBox>
+                  <Label fx:id="emailError" text="Incorrect Email or Nickname" textFill="#ca0505" visible="false">
+                     <HBox.margin>
+                        <Insets left="20.0" top="50.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox>
+                     <children>
+                        <Label text="Password:" textFill="#04763d">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Label>
+                        <PasswordField fx:id="pwdInput" prefHeight="44.0" prefWidth="269.0" promptText="Write here your pasword">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="20.0" />
+                           </font></PasswordField>
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleRegister" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="New User? Register you account now!" textFill="#04763d">
+               <font>
+                  <Font size="20.0" />
                </font>
             </Button>
-         </children>
-      </HBox>
-   </bottom>
-   <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <VBox prefHeight="66.0" prefWidth="315.0">
-                     <children>
-                        <Label text="Email:" textFill="#025477" />
-                        <TextField fx:id="emailInput" minHeight="26.0" minWidth="150.0" prefHeight="26.0" prefWidth="350.0" promptText="youremail@yourdomain.com" />
-                     </children>
-                  </VBox>
-                  <Label fx:id="emailError" text="Incorrect Email" textFill="#ca0505" visible="false">
-                     <HBox.margin>
-                        <Insets left="20.0" top="20.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
+            <Button fx:id="Login" alignment="CENTER" mnemonicParsing="false" onAction="#handleLogin" style="-fx-background-color: #04763d;" text="Login" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
                <VBox.margin>
-                  <Insets />
+                  <Insets left="10.0" top="10.0" />
                </VBox.margin>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <VBox prefHeight="58.0" prefWidth="236.0">
-                     <children>
-                        <Label text="Password:" textFill="#025477" />
-                        <PasswordField fx:id="pwdInput" prefHeight="26.0" prefWidth="146.0" promptText="Numbers&amp;Letters" />
-                     </children>
-                  </VBox>
-                  <Label fx:id="pwdError" prefHeight="52.0" prefWidth="449.0" text="Incorrect it must be a combination between 8 and 15 numbers or letters, without blank spaces" textFill="#ca0505" visible="false" wrapText="true">
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
+            </Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleButton" style="-fx-background-color: #04763d;" text="See booked courts" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
                <VBox.margin>
-                  <Insets />
+                  <Insets left="10.0" top="20.0" />
                </VBox.margin>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <VBox prefHeight="67.0" prefWidth="170.0">
-                     <children>
-                        <Label text="Repeat Password:" textFill="#025477" />
-                        <PasswordField fx:id="repeatInput" promptText="Numbers&amp;Letters" />
-                     </children>
-                  </VBox>
-                  <Label fx:id="repeatError" text="Passwords do not match" textFill="#ca0505" visible="false">
-                     <HBox.margin>
-                        <Insets left="30.0" top="20.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
-            </HBox>
+            </Button>
          </children>
          <BorderPane.margin>
             <Insets left="30.0" top="15.0" />
