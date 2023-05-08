@@ -96,7 +96,7 @@ public class FXMLSignUpController implements Initializable {
     
     @FXML
     private void handleButton(ActionEvent event) throws IOException {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/pistassinlogin.fxml"));
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/pistas.fxml"));//DEBERÍA SER pistassinlogin.fxml pero pongo pistas.fxml para testear
     Parent root = loader.load();
     Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
     Scene scene = new Scene(root);
