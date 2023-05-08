@@ -104,12 +104,17 @@ public class PistasController implements Initializable {
 
     );
     private final double disabledOpacity = 0.8;
+    private final double yourBookedOpacity = 1.5;
     @FXML
     private Button buttonProfile;
     private Label courtname;
     @FXML
     private Label clubname;
     private Member member1,member2,member3,member4,member5,member6;
+    private Booking b1,b2,b3,b4,b5,b6;
+    private String hour;
+    
+    private MouseEvent updateevent;
     //=========================================================
     // DEBEN conincidir los tipo del ListView y de la lista observable
    
@@ -134,6 +139,7 @@ public class PistasController implements Initializable {
              }
             };
         });
+
          dpBookingDay.setValue(LocalDate.now());
         initializelist();
         
@@ -169,11 +175,14 @@ public class PistasController implements Initializable {
     @FXML
     private void updateSelection(MouseEvent event) {
         setCourtsGreen();
+        updateevent=event;
+        
+        String loggeduser = "user2";
         
         System.out.println(bookingsListView.getSelectionModel().getSelectedIndex());
         int index = bookingsListView.getSelectionModel().getSelectedIndex();
         centerText.setText("CLICK ON A COURT:\n"+(9+index)+":00 - "+(9+index+1)+":00");
-        
+        hour = (9+index)+":00 - "+(9+index+1)+":00";
         LocalDate forDay = dpBookingDay.valueProperty().get();
         System.out.println(forDay);
         List<Booking> l = club.getForDayBookings(forDay);
@@ -194,42 +203,82 @@ public class PistasController implements Initializable {
                String number = b.getCourt().getName();
                switch(number){
                    case "0":
+                       member1 = b.getMember();
+                       if(b.getMember().getNickName().equals(loggeduser)){
+                       img1.setImage(new Image("/images/pistaazul.png"));                           
+                       button1.setOpacity(yourBookedOpacity);
+                       b1=b;
+                       } else{
                        img1.setImage(new Image("/images/pistaroja.png"));
                        //button1.setDisable(true);
-                       member1 = b.getMember();
+                      
                        button1.setOpacity(disabledOpacity);
+                       }
                        break;
                     case "1":
-                        img2.setImage(new Image("/images/pistaroja.png"));
-                        //button2.setDisable(true);
                         member2 = b.getMember();
-                        button2.setOpacity(disabledOpacity);
+                        if(b.getMember().getNickName().equals(loggeduser)){
+                       img2.setImage(new Image("/images/pistaazul.png"));                           
+                       button2.setOpacity(yourBookedOpacity);    
+                       b2=b;
+                       } else{
+                       img2.setImage(new Image("/images/pistaroja.png"));
+                       //button1.setDisable(true);
+                      
+                       button2.setOpacity(disabledOpacity);
+                       }
                        break;
                     case "2":
+                        member3 = b.getMember();
+                       if(b.getMember().getNickName().equals(loggeduser)){
+                       img3.setImage(new Image("/images/pistaazul.png"));                           
+                       button3.setOpacity(yourBookedOpacity);    
+                       b3=b;
+                       } else{
                        img3.setImage(new Image("/images/pistaroja.png"));
-                       //button3.setDisable(true);
-                       member3 = b.getMember();
+                       //button1.setDisable(true);
+                      
                        button3.setOpacity(disabledOpacity);
+                       }
                        break;
                     case "3":
+                        member4 = b.getMember();
+                       if(b.getMember().getNickName().equals(loggeduser)){
+                       img4.setImage(new Image("/images/pistaazul.png"));                           
+                       button4.setOpacity(yourBookedOpacity);    
+                       b4=b;
+                       } else{
                        img4.setImage(new Image("/images/pistaroja.png"));
-                       //button4.setDisable(true);
-                       member4 = b.getMember();
-                       System.out.println(member4.getNickName());
+                       //button1.setDisable(true);
+                      
                        button4.setOpacity(disabledOpacity);
+                       }
                        break;
                     case "4":
+                        member5 = b.getMember();
+                       if(b.getMember().getNickName().equals(loggeduser)){
+                       img5.setImage(new Image("/images/pistaazul.png"));                           
+                       button5.setOpacity(yourBookedOpacity); 
+                       b5=b;
+                       } else{
                        img5.setImage(new Image("/images/pistaroja.png"));
-                       //button5.setDisable(true);
-                       member5 = b.getMember();
+                       //button1.setDisable(true);
+                      
                        button5.setOpacity(disabledOpacity);
+                       };
                        break;
                     case "5":
+                        member6 = b.getMember();
+                       if(b.getMember().getNickName().equals(loggeduser)){
+                       img6.setImage(new Image("/images/pistaazul.png"));                           
+                       button6.setOpacity(yourBookedOpacity);    
+                       b6=b;
+                       } else{
                        img6.setImage(new Image("/images/pistaroja.png"));
-                       //button6.setDisable(true);
-                       member6 = b.getMember();
+                       //button1.setDisable(true);
+                      
                        button6.setOpacity(disabledOpacity);
-                       break;
+                       };
                     
                }
            }
@@ -312,10 +361,8 @@ public class PistasController implements Initializable {
     private void clickedCourt(ActionEvent event) throws IOException {
         if(bookingsListView.getSelectionModel().getSelectedIndex()!=-1){
         if(event.getSource() instanceof Button){
-            Button unavailable = (Button)event.getSource();
-            if(unavailable.getOpacity()==disabledOpacity){//Si el botón no está disponible...
-            System.out.println("Hour chosen");
-            
+            Button button = (Button)event.getSource();
+            if(button.getOpacity()==disabledOpacity){//Si el botón no está disponible...
          FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/archivosfxml/pistanodisponible.fxml"));
          Stage stage = new Stage();
          Parent root = miCargador.load();
@@ -327,9 +374,42 @@ public class PistasController implements Initializable {
          stage.setTitle("Court unavailable");
          stage.initModality(Modality.APPLICATION_MODAL);
          stage.showAndWait();
-            }else{//Si el botón está disponible
-                
+            }else if(button.getOpacity()==yourBookedOpacity){//Si el botón está disponible
+         FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/archivosfxml/cancelarreserva.fxml"));
+         Stage stage = new Stage();
+         Parent root = miCargador.load();
+         CancelarReservaController controlPopUp = miCargador.getController();
+         String court;
+         Booking remove;
+        if (event.getSource() == button1) {
+            court = hour+" | Court: 1";
+            remove = b1;
+        } else if (event.getSource() == button2) {
+            court = hour+" | Court: 2";
+            remove = b2;
+        } else if (event.getSource() == button3) {
+            court = hour+" | Court: 3";
+            remove = b3;
+        } else if (event.getSource() == button4) {
+            court = hour+" | Court: 4";
+            remove = b4;
+        } else if (event.getSource() == button5) {
+            court = hour+" | Court: 5";
+            remove = b5;
+        } else if (event.getSource() == button6) {
+            court = hour+" | Court: 6";
+            remove = b6;
+        }else{court="";remove=null;}
+         controlPopUp.initializePopUp(court,dpBookingDay.valueProperty().get().toString(),remove,club);
+         Scene scene = new Scene(root, 300, 200);
+         stage.setScene(scene);
+         stage.setTitle("Court unavailable");
+         stage.initModality(Modality.APPLICATION_MODAL);
+         stage.showAndWait();
+         updateSelection(updateevent);
             }
+        }else{
+            
         }
         }else{
             System.out.println("Choose an hour");
@@ -339,10 +419,8 @@ public class PistasController implements Initializable {
     private Member getMemberOfClickedCourt(ActionEvent event){
         if (event.getSource() == button1) {
             return member1;
-        
         } else if (event.getSource() == button2) {
             return member2;  
-        
         } else if (event.getSource() == button3) {
             return member3;
         } else if (event.getSource() == button4) {
