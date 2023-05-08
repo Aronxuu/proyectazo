@@ -20,6 +20,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -46,22 +47,25 @@ public class FXMLSignUpController implements Initializable {
     @FXML
     private Label pwdError;
     @FXML
-    private Button Register;
-    @FXML
     private Button Login;
     
     private Club club;
     
     public String login;
+    @FXML
+    private Label emailError;
     
+    @FXML
     private void handleRegister(ActionEvent event) throws IOException {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("register.fxml"));
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/register.fxml"));
     Parent root = loader.load();
     Stage stage = new Stage();
     Scene scene = new Scene(root);
     stage.setScene(scene);
     stage.show();
+
     }
+    @FXML
     private void handleLogin(ActionEvent event) throws IOException {
         String pasword = pwdInput.getText();
         login = emailInput.getText();
@@ -76,7 +80,7 @@ public class FXMLSignUpController implements Initializable {
        if(b == null){
             pwdError.setVisible(true);
        }else{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("pistas.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/pistas.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             Scene scene = new Scene(root);
@@ -90,10 +94,11 @@ public class FXMLSignUpController implements Initializable {
         pwdError.setVisible(false);
     }
     
+    @FXML
     private void handleButton(ActionEvent event) throws IOException {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("pistassinlogin.fxml"));
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/pistassinlogin.fxml"));
     Parent root = loader.load();
-    Stage stage = new Stage();
+    Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
     Scene scene = new Scene(root);
     stage.setScene(scene);
     stage.show();

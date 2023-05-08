@@ -25,6 +25,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.ImageCursor;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -87,8 +88,6 @@ public class PistasSinLoginController implements Initializable {
     private Button button3;
     @FXML
     private Button button6;
-    @FXML
-    private DatePicker dpBookingDay;
     @FXML
     private Label centerText;
     /*
@@ -342,6 +341,16 @@ public class PistasSinLoginController implements Initializable {
             return member6;
         }
         else{return null;}
+    }
+
+    @FXML
+    private void goHome(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/login.fxml"));
+    Parent root = loader.load();
+    Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    Scene scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show();
     }
 
 }

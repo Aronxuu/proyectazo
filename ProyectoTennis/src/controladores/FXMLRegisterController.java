@@ -37,9 +37,6 @@ public class FXMLRegisterController implements Initializable {
     // objects defined into FXML file with fx:id 
     @FXML
     private Button register;
-    @FXML
-    private Label labelMessage;
-    @FXML
     private TextField nameField;
     @FXML
     private TextField surnameField;
@@ -47,9 +44,7 @@ public class FXMLRegisterController implements Initializable {
     private TextField nickField;
     @FXML
     private TextField telephoneField;
-    @FXML
     private PasswordField passwordField;
-    @FXML
     private PasswordField passwordField2;
     @FXML
     private TextField cardField;
@@ -67,10 +62,14 @@ public class FXMLRegisterController implements Initializable {
     private Label cardError;
     @FXML
     private Label cardError1;
-    @FXML
-    private ComboBox<String> imageComboBox;
     private Image im;
     private Club club;
+    @FXML
+    private TextField nameFiels;
+    @FXML
+    private PasswordField passwordFiled;
+    @FXML
+    private PasswordField passwordFiled2;
     //=========================================================
     // event handler, fired when button is clicked or 
     //                      when the button has the focus and enter is pressed
