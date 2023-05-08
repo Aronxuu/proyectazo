@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="1280.0" text="Register">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="66.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="427.0">
+               <children>
+                  <HBox prefHeight="150.0">
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label text="Name:" textFill="#04763d">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="nameFiels">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="150.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label text="Nickname:" textFill="#04763d">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="nickField">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </TextField>
+                              <Label fx:id="nickError" text="Nickname already in use, try another" textFill="#ca0505" visible="false">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="150.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label text="Password:" textFill="#04763d">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <PasswordField fx:id="passwordFiled">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </PasswordField>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="150.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label text="CreditCard::" textFill="#04763d">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="cardField">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </TextField>
+                              <Label fx:id="cardError" text="Not a valid credit card number" textFill="#ca0505" visible="false">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="427.0">
+               <children>
+                  <HBox prefHeight="150.0">
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label text="Surname:" textFill="#04763d">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="surnameField">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="150.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label text="Telephone:" textFill="#04763d">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="telephoneField" promptText="XXXXXXXXX">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </TextField>
+                              <Label fx:id="telError" text="Not a valid phone number" textFill="#ca0505" visible="false">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="150.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label text="Repeat your password:" textFill="#04763d">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <PasswordField fx:id="passwordFiled2">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </PasswordField>
+                              <Label fx:id="pasError" text="The passwords aren't equal" textFill="#ca0505" visible="false">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="150.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label text="Security Number of the card:" textFill="#04763d">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="numberField">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </TextField>
+                              <Label fx:id="cardError1" text="Not a valid security number" textFill="#ca0505" visible="false">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="426.0">
+               <children>
+                  <Label text="Select your profile image:" textFill="#04763d">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ComboBox onAction="#handleImageSelection" visibleRowCount="12">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></ComboBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox alignment="BOTTOM_LEFT" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="register" mnemonicParsing="false" onAction="#handleRegister" style="-fx-background-color: #04763d;" text="Register" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Label fx:id="nullError" text="Please fill up all fields" textFill="#ca0505" visible="false">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="40.0" left="40.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+</BorderPane>
