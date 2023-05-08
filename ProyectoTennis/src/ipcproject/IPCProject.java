@@ -67,7 +67,7 @@ public class IPCProject extends Application {
         //===================================
         // users        
         for (Member member : club.getMembers()) {
-            System.out.println("member:" + member.getName()+ ", "+ member.getNickName());
+            System.out.println("member:" + member.getName()+ ", "+ member.getNickName()+"Pass: "+member.getPassword());
         }
         
         //===================================

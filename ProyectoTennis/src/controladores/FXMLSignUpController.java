@@ -69,20 +69,23 @@ public class FXMLSignUpController implements Initializable {
     private void handleLogin(ActionEvent event) throws IOException {
         String pasword = pwdInput.getText();
         login = emailInput.getText();
+        System.out.println(pasword+login);
         try {
             club = getInstance();
-            club.setInitialData();
+
         } catch (ClubDAOException ex) {
             Logger.getLogger(FXMLSignUpController.class.getName()).log(Level.SEVERE, null, ex);
         }
        Member b = club.getMemberByCredentials(login, pasword);
-       
+
        if(b == null){
             pwdError.setVisible(true);
        }else{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/pistas.fxml"));
             Parent root = loader.load();
-            Stage stage = new Stage();
+            PistasController pistas = loader.getController();
+            pistas.getLogged(login);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -96,7 +99,7 @@ public class FXMLSignUpController implements Initializable {
     
     @FXML
     private void handleButton(ActionEvent event) throws IOException {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/pistas.fxml"));//DEBERÍA SER pistassinlogin.fxml pero pongo pistas.fxml para testear
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/pistassinlogin.fxml"));//DEBERÍA SER pistassinlogin.fxml pero pongo pistas.fxml para testear
     Parent root = loader.load();
     Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
     Scene scene = new Scene(root);

@@ -113,11 +113,14 @@ public class PistasController implements Initializable {
     private Member member1,member2,member3,member4,member5,member6;
     private Booking b1,b2,b3,b4,b5,b6;
     private String hour;
-    
+    private String loggeduser;
     private MouseEvent updateevent;
     //=========================================================
     // DEBEN conincidir los tipo del ListView y de la lista observable
    
+    public void getLogged(String login){
+        loggeduser = login;
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -177,7 +180,7 @@ public class PistasController implements Initializable {
         setCourtsGreen();
         updateevent=event;
         
-        String loggeduser = "user2";
+        
         
         System.out.println(bookingsListView.getSelectionModel().getSelectedIndex());
         int index = bookingsListView.getSelectionModel().getSelectedIndex();
