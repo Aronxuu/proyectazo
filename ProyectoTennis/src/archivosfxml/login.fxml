@@ -64,6 +64,9 @@
                               <Font size="20.0" />
                            </font></TextField>
                      </children>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
                   </VBox>
                   <Label fx:id="emailError" text="Incorrect Email or Nickname" textFill="#ca0505" visible="false">
                      <HBox.margin>
@@ -94,13 +97,16 @@
                               <Font size="20.0" />
                            </font></PasswordField>
                      </children>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
                   </VBox>
                </children>
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </HBox>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleRegister" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="New User? Register you account now!" textFill="#04763d">
+            <Button mnemonicParsing="false" onAction="#handleRegister" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="New User? Register you account now!" textFill="#04763d">
                <font>
                   <Font size="20.0" />
                </font>
