@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controladores;
 
 
@@ -59,7 +54,7 @@ public class FXMLSignUpController implements Initializable {
     private void handleRegister(ActionEvent event) throws IOException {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/register.fxml"));
     Parent root = loader.load();
-    Stage stage = new Stage();
+    Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
     Scene scene = new Scene(root);
     stage.setScene(scene);
     stage.show();
@@ -112,9 +107,7 @@ public class FXMLSignUpController implements Initializable {
     stage.show();
     }
 
-    public String getLogin(){
-        return login;
-    }
+    
     //=========================================================
     // you must initialize here all related with the object 
     @Override

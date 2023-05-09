@@ -186,18 +186,21 @@ public class PistasSinLoginController implements Initializable {
                        //button1.setDisable(true);
                        member1 = b.getMember();
                        button1.setOpacity(disabledOpacity);
+                       reserve1.setText(member1.getNickName());
                        break;
                     case "1":
                         img2.setImage(new Image("/images/pistaroja.png"));
                         //button2.setDisable(true);
                         member2 = b.getMember();
                         button2.setOpacity(disabledOpacity);
+                        reserve2.setText(member2.getNickName());
                        break;
                     case "2":
                        img3.setImage(new Image("/images/pistaroja.png"));
                        //button3.setDisable(true);
                        member3 = b.getMember();
                        button3.setOpacity(disabledOpacity);
+                       reserve3.setText(member3.getNickName());
                        break;
                     case "3":
                        img4.setImage(new Image("/images/pistaroja.png"));
@@ -205,18 +208,21 @@ public class PistasSinLoginController implements Initializable {
                        member4 = b.getMember();
                        System.out.println(member4.getNickName());
                        button4.setOpacity(disabledOpacity);
+                       reserve4.setText(member4.getNickName());
                        break;
                     case "4":
                        img5.setImage(new Image("/images/pistaroja.png"));
                        //button5.setDisable(true);
                        member5 = b.getMember();
                        button5.setOpacity(disabledOpacity);
+                       reserve5.setText(member5.getNickName());
                        break;
                     case "5":
                        img6.setImage(new Image("/images/pistaroja.png"));
                        //button6.setDisable(true);
                        member6 = b.getMember();
                        button6.setOpacity(disabledOpacity);
+                       reserve6.setText(member6.getNickName());
                        break;
                     
                }

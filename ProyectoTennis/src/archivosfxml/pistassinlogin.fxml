@@ -79,7 +79,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Label fx:id="reserve1" />
+                        <Label fx:id="reserve1" textFill="WHITE" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
@@ -98,7 +98,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Label fx:id="reserve2" />
+                        <Label fx:id="reserve2" textFill="WHITE" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -117,7 +117,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Label fx:id="reserve5" />
+                        <Label fx:id="reserve5" textFill="WHITE" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
@@ -136,7 +136,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Label fx:id="reserve4" />
+                        <Label fx:id="reserve4" textFill="WHITE" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
@@ -155,7 +155,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Label fx:id="reserve3" />
+                        <Label fx:id="reserve3" textFill="WHITE" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
@@ -174,7 +174,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Label fx:id="reserve6" />
+                        <Label fx:id="reserve6" textFill="WHITE" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">

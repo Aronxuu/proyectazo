@@ -5,11 +5,14 @@
  */
 package controladores;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +25,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 import model.Club;
 import static model.Club.getInstance;
 import model.ClubDAOException;
@@ -76,14 +82,16 @@ public class FXMLRegisterController implements Initializable {
     private Label passwordError;
     @FXML
     private Label surnameError;
-
+    @FXML
+    private ImageView userImage;
+    
     private boolean hasValidCard = false;
     //=========================================================
     // event handler, fired when button is clicked or 
     //                      when the button has the focus and enter is pressed
     @FXML
     private void handleRegister(ActionEvent event) throws IOException {
-        
+
         boolean nerror = true;
         nullError.setVisible(false);
         nickError.setVisible(false);
@@ -94,6 +102,8 @@ public class FXMLRegisterController implements Initializable {
         surnameError.setVisible(false);
         nameError1.setVisible(false);
         passwordError.setVisible(false);
+        
+                Image image = chooseImage(); 
         String name = nameField3.getText();//AKI
         String surname = surnameField.getText();
         String nick = nickField.getText();
@@ -168,13 +178,25 @@ public class FXMLRegisterController implements Initializable {
         stage.setScene(scene);
         stage.show();
         }}
-    @FXML
-    private void handleImageSelection(ActionEvent event) {
+
+
     
+    private Image chooseImage() throws IOException {
+        if(im != null){ return im;}
+        Image image;
+        image = new Image("/images/default.png");
+        return image;
+    }
+    FileChooser fileChooser = new FileChooser();
+    @FXML
+    private void getImage(ActionEvent Event) throws IOException{
+        File file = fileChooser.showOpenDialog(new Stage());
+        BufferedImage image = ImageIO.read(file);
+        Image image1 = SwingFXUtils.toFXImage(image, null);
+        im = image1;
+        userImage.setImage(image1);
     }
 
-
-    
     
     //=========================================================
     // you must initialize here all related with the object 
@@ -182,5 +204,7 @@ public class FXMLRegisterController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
+
+
+
 }
