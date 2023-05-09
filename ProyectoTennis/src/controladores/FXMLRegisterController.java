@@ -17,6 +17,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -56,7 +57,6 @@ public class FXMLRegisterController implements Initializable {
     private TextField cardField;
     @FXML
     private TextField numberField;
-    @FXML
     private Label nullError;
     @FXML
     private Label nickError;
@@ -86,6 +86,10 @@ public class FXMLRegisterController implements Initializable {
     private ImageView userImage;
     
     private boolean hasValidCard = false;
+    @FXML
+    private Button backButton;
+    @FXML
+    private Label imError;
     //=========================================================
     // event handler, fired when button is clicked or 
     //                      when the button has the focus and enter is pressed
@@ -167,13 +171,15 @@ public class FXMLRegisterController implements Initializable {
         int num = Integer.parseInt(number);
         if(nerror){
             try {
+                                System.out.println("Registrado3");
                 Member b = club.registerMember(name, surname, tel, nick, password, card, num, im);
+                System.out.println("Registrado");
             } catch (ClubDAOException ex) {
                 Logger.getLogger(FXMLRegisterController.class.getName()).log(Level.SEVERE, null, ex);
             }
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pistas.fxml"));
         Parent root = loader.load();
-        Stage stage = new Stage();
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -190,11 +196,16 @@ public class FXMLRegisterController implements Initializable {
     FileChooser fileChooser = new FileChooser();
     @FXML
     private void getImage(ActionEvent Event) throws IOException{
+        try{
         File file = fileChooser.showOpenDialog(new Stage());
         BufferedImage image = ImageIO.read(file);
         Image image1 = SwingFXUtils.toFXImage(image, null);
         im = image1;
         userImage.setImage(image1);
+        imError.setVisible(false);
+        }catch(Exception e){
+            imError.setVisible(true);
+        }
     }
 
     
@@ -204,6 +215,16 @@ public class FXMLRegisterController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void handleBack(ActionEvent event) throws IOException {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/login.fxml"));
+    Parent root = loader.load();
+    Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    Scene scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show();
+    }
 
 
 

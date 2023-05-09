@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -43,7 +44,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="nameField3" prefHeight="44.0" prefWidth="300.0">
+                              <TextField fx:id="nameField3" prefHeight="44.0" prefWidth="300.0" promptText="Name">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -61,12 +62,12 @@
                      <children>
                         <VBox prefWidth="300.0">
                            <children>
-                              <Label text="Nickname:" textFill="WHITE">
+                              <Label text="Username:" textFill="WHITE">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="nickField" prefHeight="44.0" prefWidth="300.0">
+                              <TextField fx:id="nickField" prefHeight="44.0" prefWidth="300.0" promptText="Username">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -112,7 +113,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="cardField" prefHeight="44.0" prefWidth="300.0">
+                              <TextField fx:id="cardField" prefHeight="44.0" prefWidth="300.0" promptText="XXXXXXXXXXXX">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -145,7 +146,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="surnameField">
+                              <TextField fx:id="surnameField" promptText="Surname">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -214,7 +215,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="numberField">
+                              <TextField fx:id="numberField" promptText="XXX">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -242,15 +243,26 @@
                   </Label>
                   <Button mnemonicParsing="false" onAction="#getImage" text="Click here to choose">
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets />
                      </VBox.margin>
                      <font>
                         <Font size="20.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
+                  <Label fx:id="imError" text="This file is not valid" textFill="#ca0505" visible="false">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="17.0" />
+                     </VBox.margin>
+                  </Label>
                   <ImageView fx:id="userImage" fitHeight="187.0" fitWidth="286.0" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
-                        <Insets top="85.0" />
+                        <Insets top="70.0" />
                      </VBox.margin>
                   </ImageView>
                </children>
@@ -264,25 +276,31 @@
    <bottom>
       <HBox alignment="BOTTOM_LEFT" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="register" mnemonicParsing="false" onAction="#handleRegister" style="-fx-background-color: #04763d;" text="Register" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="register" mnemonicParsing="false" onAction="#handleRegister" prefWidth="107.0" style="-fx-background-color: #04763d;" text="Register" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
                <HBox.margin>
                   <Insets left="15.0" />
                </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Label fx:id="nullError" text="Please fill up all fields" textFill="#ca0505" visible="false">
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBack" prefHeight="44.0" prefWidth="107.0" style="-fx-background-color: #04763d;" text="Back" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
-            </Label>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
          <BorderPane.margin>
-            <Insets bottom="40.0" left="40.0" />
+            <Insets bottom="40.0" left="45.0" />
          </BorderPane.margin>
       </HBox>
    </bottom>

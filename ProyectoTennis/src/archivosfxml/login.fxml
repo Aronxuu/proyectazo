@@ -49,7 +49,7 @@
                <children>
                   <VBox prefHeight="279.0" prefWidth="364.0">
                      <children>
-                        <Label text="Username:" textFill="#04763d">
+                        <Label text="Username:" textFill="WHITE">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
@@ -85,7 +85,7 @@
                <children>
                   <VBox>
                      <children>
-                        <Label text="Password:" textFill="#04763d">
+                        <Label text="Password:" textFill="WHITE">
                            <font>
                               <Font size="20.0" />
                            </font></Label>
@@ -106,7 +106,7 @@
                   <Insets />
                </VBox.margin>
             </HBox>
-            <Button mnemonicParsing="false" onAction="#handleRegister" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="New User? Register you account now!" textFill="#04763d">
+            <Button mnemonicParsing="false" onAction="#handleRegister" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="New User? Register you account now!" textFill="#77bc2b">
                <font>
                   <Font size="20.0" />
                </font>
