@@ -37,7 +37,7 @@
       <VBox BorderPane.alignment="CENTER">
          <children>
             <VBox prefHeight="90.0" />
-            <Label fx:id="pwdError" text="The password doesn't coincide with the Nickname given, please try again" textFill="#ca0505" visible="false" wrapText="true">
+            <Label fx:id="pwdError" text="Invalid password or username, try again" textFill="#ca0505" visible="false" wrapText="true">
                <font>
                   <Font size="21.0" />
                </font>
@@ -49,7 +49,7 @@
                <children>
                   <VBox prefHeight="279.0" prefWidth="364.0">
                      <children>
-                        <Label text="Nickname:" textFill="#04763d">
+                        <Label text="Username:" textFill="#04763d">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
@@ -89,7 +89,7 @@
                            <font>
                               <Font size="20.0" />
                            </font></Label>
-                        <PasswordField fx:id="pwdInput" prefHeight="44.0" prefWidth="269.0" promptText="Password">
+                        <PasswordField fx:id="pwdInput" prefHeight="44.0" prefWidth="364.0" promptText="Password">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>

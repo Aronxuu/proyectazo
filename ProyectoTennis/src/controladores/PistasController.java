@@ -248,7 +248,7 @@ public class PistasController implements Initializable {
                        } else{
                        img1.setImage(new Image("/images/pistaroja.png"));
                        //button1.setDisable(true);
-                      
+                      reserve1.setText(member1.getNickName());
                        button1.setOpacity(disabledOpacity);
                        }
                        break;
@@ -261,7 +261,7 @@ public class PistasController implements Initializable {
                        } else{
                        img2.setImage(new Image("/images/pistaroja.png"));
                        //button1.setDisable(true);
-                      
+                      reserve2.setText(member2.getNickName());
                        button2.setOpacity(disabledOpacity);
                        }
                        break;
@@ -274,7 +274,7 @@ public class PistasController implements Initializable {
                        } else{
                        img3.setImage(new Image("/images/pistaroja.png"));
                        //button1.setDisable(true);
-                      
+                      reserve3.setText(member3.getNickName());
                        button3.setOpacity(disabledOpacity);
                        }
                        break;
@@ -287,7 +287,7 @@ public class PistasController implements Initializable {
                        } else{
                        img4.setImage(new Image("/images/pistaroja.png"));
                        //button1.setDisable(true);
-                      
+                      reserve4.setText(member4.getNickName());
                        button4.setOpacity(disabledOpacity);
                        }
                        break;
@@ -300,7 +300,7 @@ public class PistasController implements Initializable {
                        } else{
                        img5.setImage(new Image("/images/pistaroja.png"));
                        //button1.setDisable(true);
-                      
+                      reserve5.setText(member5.getNickName());
                        button5.setOpacity(disabledOpacity);
                        };
                        break;
@@ -313,7 +313,7 @@ public class PistasController implements Initializable {
                        } else{
                        img6.setImage(new Image("/images/pistaroja.png"));
                        //button1.setDisable(true);
-                      
+                       reserve6.setText(member6.getNickName());
                        button6.setOpacity(disabledOpacity);
                        };
                     
@@ -343,6 +343,12 @@ public class PistasController implements Initializable {
         button4.setOpacity(1);
         button5.setOpacity(1);
         button6.setOpacity(1);
+        reserve1.setText("");
+        reserve2.setText("");
+        reserve3.setText("");
+        reserve4.setText("");
+        reserve5.setText("");
+        reserve6.setText("");
         
         
     }
