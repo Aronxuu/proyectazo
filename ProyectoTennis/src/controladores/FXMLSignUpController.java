@@ -112,7 +112,9 @@ public class FXMLSignUpController implements Initializable {
     stage.show();
     }
 
-    
+    public String getLogin(){
+        return login;
+    }
     //=========================================================
     // you must initialize here all related with the object 
     @Override

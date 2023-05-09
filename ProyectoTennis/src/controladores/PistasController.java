@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controladores;
 
 import java.io.IOException;
@@ -115,8 +110,15 @@ public class PistasController implements Initializable {
     private String hour;
     private String loggeduser;
     private MouseEvent updateevent;
+   
     //=========================================================
     // DEBEN conincidir los tipo del ListView y de la lista observable
+    @FXML
+    private ListView<Booking> myBookingListView;
+    
+    private final ObservableList<Booking> listaPrincReservados = FXCollections.observableArrayList(
+
+    );
    
     public void getLogged(String login){
         loggeduser = login;
@@ -145,11 +147,43 @@ public class PistasController implements Initializable {
 
          dpBookingDay.setValue(LocalDate.now());
         initializelist();
-        
+        initializeListMyBooking();
             
 
     }    
 
+        void initializeListMyBooking(){
+            loggeduser= "user2";
+            System.out.println(loggeduser + " esto es 2");
+            List<Booking> reser = club.getUserBookings(loggeduser);          
+            int i = 10;
+            int j = reser.size()-1;
+            int tamaño = reser.size();
+            while(i!=0 && tamaño!=0){    //Ns si sería == o equals.
+                listaPrincReservados.add(reser.get(j));
+                i--;
+                j--;
+                tamaño--;
+            }
+            
+            myBookingListView.setItems(listaPrincReservados);
+            myBookingListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+            
+            class BookingListCell extends ListCell<Booking>{
+
+                @Override
+                protected void updateItem(Booking t, boolean bln) {
+                    super.updateItem(t, bln); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+                    if (t==null || bln) setText(null);
+                    else{
+                        setText(t.getMadeForDay().toString() + ", " + t.getFromTime().toString());
+                    }
+                
+                }
+            
+            }
+            myBookingListView.setCellFactory(c-> new BookingListCell());
+        }
         void initializelist() {
         // en el código de inicialización del controlador
         int max = 1320;
@@ -434,6 +468,62 @@ public class PistasController implements Initializable {
             return member6;
         }
         else{return null;}
+    }
+
+    @FXML
+    private void updateSelection2(MouseEvent event) {
+        setCourtsGreen();
+        
+        List<Court> courts = club.getCourts();
+        int sizec =courts.size();
+        
+        for(int i = 0; i<sizec;i++){
+            
+            courts.get(i).setName(Integer.toString(i));
+        }
+        
+        System.out.println(myBookingListView.getSelectionModel().getSelectedIndex());
+        Booking item = myBookingListView.getSelectionModel().getSelectedItem();
+        if(item.getPaid()==true){
+            centerText.setText("THE COURT IS ALREADY PAID");
+        }else{centerText.setText("THE COURT IS STILL NOT PAID");}
+        String urCourt = item.getCourt().getName();
+        
+        
+        
+        
+        switch(urCourt){
+            case "0":
+                img1.setImage(new Image("/images/pistaazul.png"));
+                System.out.println("funciona");
+                break;
+            case "1":
+                img2.setImage(new Image("/images/pistaazul.png"));
+                System.out.println("funciona");
+                break;
+            case "2":
+                img3.setImage(new Image("/images/pistaazul.png"));
+                System.out.println("funciona");
+                break;
+            case "3":
+                img4.setImage(new Image("/images/pistaazul.png"));
+                System.out.println("funciona");
+                break;
+            case "4":
+                img5.setImage(new Image("/images/pistaazul.png"));
+                System.out.println("funciona");
+                break;
+            case "5":
+                img6.setImage(new Image("/images/pistaazul.png"));
+                System.out.println("funciona");
+                break;
+            
+        }
+    }
+
+
+    @FXML
+    private void clickedDelete(ActionEvent event) {
     }
 
 }

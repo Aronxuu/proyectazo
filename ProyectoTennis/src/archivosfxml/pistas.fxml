@@ -64,7 +64,12 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="614.0" prefWidth="270.0">
                            <children>
-                              <ListView maxWidth="1.7976931348623157E308" prefHeight="656.0" prefWidth="251.0" />
+                              <ListView fx:id="myBookingListView" layoutY="39.0" maxWidth="1.7976931348623157E308" onMouseClicked="#updateSelection2" prefHeight="518.0" prefWidth="251.0" />
+                              <VBox alignment="CENTER" prefHeight="39.0" prefWidth="251.0" style="-fx-background-color: white; -fx-border-color: C1C1C1;">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#clickedDelete" onMouseEntered="#enterButton" prefHeight="25.0" prefWidth="100.0" text="Delete Booking" />
+                                 </children>
+                              </VBox>
                            </children></AnchorPane>
                      </content>
                   </Tab>
