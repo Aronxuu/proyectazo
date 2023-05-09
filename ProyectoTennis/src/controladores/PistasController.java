@@ -98,7 +98,7 @@ public class PistasController implements Initializable {
     private final ObservableList<String> listaprincipal = FXCollections.observableArrayList(
 
     );
-    private final double disabledOpacity = 0.8;
+    private final double disabledOpacity = 0.99;
     private final double yourBookedOpacity = 1.5;
     @FXML
     private Button buttonProfile;
@@ -154,21 +154,25 @@ public class PistasController implements Initializable {
 
         void initializeListMyBooking(){
             loggeduser= "user2";
-            System.out.println(loggeduser + " esto es 2");
-            List<Booking> reser = club.getUserBookings(loggeduser);          
+            List<Booking> reser = club.getUserBookings(loggeduser);
             int i = 10;
             int j = 0;
             int tamaño = reser.size();
-            while(i!=0 && tamaño!=0){    //Ns si sería == o equals.
-                listaPrincReservados.add(reser.get(j));
-                i--;
+            while(i!=0 && tamaño!=0){
+                if(j!=0 && reser.get(j-1).getFromTime().equals(reser.get(j).getFromTime())){
+                    System.out.println("Aquí hay dos+ pistas misma hora");
+                }else{
+                    listaPrincReservados.add(reser.get(j));
+                    i--;
+                }
+
                 j++;
                 tamaño--;
             }
-            
+
             myBookingListView.setItems(listaPrincReservados);
             myBookingListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-            
+
             class BookingListCell extends ListCell<Booking>{
 
                 @Override
@@ -176,11 +180,12 @@ public class PistasController implements Initializable {
                     super.updateItem(t, bln); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
                     if (t==null || bln) setText(null);
                     else{
-                        setText(t.getMadeForDay().toString() + ", " + t.getFromTime().toString());
+                        int x = t.getFromTime().getHour() + 1;
+                        setText(t.getMadeForDay().toString() + ", " + t.getFromTime().toString() + " - " + x + ":00");
                     }
-                
+
                 }
-            
+
             }
             myBookingListView.setCellFactory(c-> new BookingListCell());
         }
@@ -478,6 +483,7 @@ public class PistasController implements Initializable {
 
     @FXML
     private void updateSelection2(MouseEvent event) {
+System.out.println("Estamos aquí");
         setCourtsGreen();
         
         List<Court> courts = club.getCourts();
@@ -488,42 +494,106 @@ public class PistasController implements Initializable {
             courts.get(i).setName(Integer.toString(i));
         }
         
-        System.out.println(myBookingListView.getSelectionModel().getSelectedIndex());
+        System.out.println("El índice es " + myBookingListView.getSelectionModel().getSelectedIndex());
         Booking item = myBookingListView.getSelectionModel().getSelectedItem();
-        if(item.getPaid()==true){
-            centerText.setText("THE COURT IS ALREADY PAID");
-        }else{centerText.setText("THE COURT IS STILL NOT PAID");}
-        String urCourt = item.getCourt().getName();
+        List<Booking> resEseDia = club.getForDayBookings(item.getMadeForDay());
+        List<Booking> resHora = new ArrayList<>();
+        System.out.println("Estamos aquí 2");
+        for(int i=0; i<resEseDia.size(); i++){
+            if(item.getFromTime().equals(resEseDia.get(i).getFromTime())){
+                resHora.add(resEseDia.get(i));
+            }
+        }
+        
+        
+        centerText.setText("CLICK ON A COURT TO SEE\n MORE DETAILS");
         
         
         
         
-        switch(urCourt){
-            case "0":
-                img1.setImage(new Image("/images/pistaazul.png"));
-                System.out.println("funciona");
-                break;
-            case "1":
-                img2.setImage(new Image("/images/pistaazul.png"));
-                System.out.println("funciona");
-                break;
-            case "2":
-                img3.setImage(new Image("/images/pistaazul.png"));
-                System.out.println("funciona");
-                break;
-            case "3":
-                img4.setImage(new Image("/images/pistaazul.png"));
-                System.out.println("funciona");
-                break;
-            case "4":
-                img5.setImage(new Image("/images/pistaazul.png"));
-                System.out.println("funciona");
-                break;
-            case "5":
-                img6.setImage(new Image("/images/pistaazul.png"));
-                System.out.println("funciona");
-                break;
+        for(int i=0; i<resHora.size(); i++){
+            String urCourt = resHora.get(i).getCourt().getName();
+            switch(urCourt){
+                case "0":
+                    member1 = resHora.get(i).getMember();
+                    if(resHora.get(i).getMember().getNickName().equals(loggeduser)){
+                        img1.setImage(new Image("/images/pistaazul.png"));
+                        if(resHora.get(i).getPaid()==true){
+                            reserve1.setText("PAID");
+                        }else{reserve1.setText("NOT PAID");}
+                    }else{
+                        img1.setImage(new Image("/images/pistaroja.png"));
+                        reserve1.setText(member1.getNickName());
+                    }                   
+                    System.out.println("funciona");
+                    break;
+                case "1":
+                    member2 = resHora.get(i).getMember();
+                    if(resHora.get(i).getMember().getNickName().equals(loggeduser)){
+                        img2.setImage(new Image("/images/pistaazul.png"));
+                        if(resHora.get(i).getPaid()==true){
+                            reserve2.setText("PAID");
+                        }else{reserve2.setText("NOT PAID");}
+                    }else{
+                        img2.setImage(new Image("/images/pistaroja.png"));
+                        reserve2.setText(member2.getNickName());
+                    }                   
+                    System.out.println("funciona");
+                    break;
+                case "2":
+                    member3 = resHora.get(i).getMember();
+                    if(resHora.get(i).getMember().getNickName().equals(loggeduser)){
+                        img3.setImage(new Image("/images/pistaazul.png"));
+                        if(resHora.get(i).getPaid()==true){
+                            reserve3.setText("PAID");
+                        }else{reserve3.setText("NOT PAID");}
+                    }else{
+                        img3.setImage(new Image("/images/pistaroja.png"));
+                        reserve3.setText(member3.getNickName());
+                    }
+                    System.out.println("funciona");
+                    break;
+                case "3":
+                    member4 = resHora.get(i).getMember();
+                    if(resHora.get(i).getMember().getNickName().equals(loggeduser)){
+                        img4.setImage(new Image("/images/pistaazul.png"));
+                        if(resHora.get(i).getPaid()==true){
+                            reserve4.setText("PAID");
+                        }else{reserve4.setText("NOT PAID");}
+                    }else{
+                        img4.setImage(new Image("/images/pistaroja.png"));
+                        reserve4.setText(member4.getNickName());
+                    }
+                    System.out.println("funciona");
+                    break;
+                case "4":
+                    member5 = resHora.get(i).getMember();
+                    if(resHora.get(i).getMember().getNickName().equals(loggeduser)){
+                        img5.setImage(new Image("/images/pistaazul.png"));
+                        if(resHora.get(i).getPaid()==true){
+                            reserve5.setText("PAID");
+                        }else{reserve5.setText("NOT PAID");}
+                    }else{
+                        img5.setImage(new Image("/images/pistaroja.png"));
+                        reserve5.setText(member5.getNickName());
+                    }
+                    System.out.println("funciona");
+                    break;
+                case "5":
+                    member6 = resHora.get(i).getMember();
+                    if(resHora.get(i).getMember().getNickName().equals(loggeduser)){
+                        img6.setImage(new Image("/images/pistaazul.png"));
+                        if(resHora.get(i).getPaid()==true){
+                            reserve6.setText("PAID");
+                        }else{reserve6.setText("NOT PAID");}
+                    }else{
+                        img6.setImage(new Image("/images/pistaroja.png"));
+                        reserve6.setText(member6.getNickName());
+                    }
+                    System.out.println("funciona");
+                    break;
             
+            }
         }
     }
 
