@@ -120,7 +120,7 @@ public class PistasController implements Initializable {
 
     );
    
-    public void getLogged(String login){
+    public void setLogin(String login){
         loggeduser = login;
     }
     @Override
@@ -153,7 +153,7 @@ public class PistasController implements Initializable {
     }    
 
         void initializeListMyBooking(){
-            loggeduser= "user2";
+            
             List<Booking> reser = club.getUserBookings(loggeduser);
             int i = 10;
             int j = 0;

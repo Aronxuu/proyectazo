@@ -102,7 +102,7 @@ public class PistasSinLoginController implements Initializable {
     private final ObservableList<String> listaprincipal = FXCollections.observableArrayList(
 
     );
-    private final double disabledOpacity = 0.8;
+    private final double disabledOpacity = 0.99;
     @FXML
     private Button buttonProfile;
     private Label courtname;

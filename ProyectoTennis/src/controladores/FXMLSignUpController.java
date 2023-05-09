@@ -77,14 +77,19 @@ public class FXMLSignUpController implements Initializable {
            
             pwdError.setVisible(true);
        }else{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/pistas.fxml"));
-            Parent root = loader.load();
-            PistasController pistas = loader.getController();
-            pistas.getLogged(login);
-            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/pistas.fxml"));
+        loader.setControllerFactory(controllerClass -> {
+
+        PistasController controller = new PistasController();
+        controller.setLogin(login);
+        return controller;
+    
+        });
+        Parent root = loader.load();
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
        }
         }catch(Exception e){
             pwdError.setVisible(true);
