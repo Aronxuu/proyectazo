@@ -57,7 +57,6 @@ public class FXMLRegisterController implements Initializable {
     private TextField cardField;
     @FXML
     private TextField numberField;
-    private Label nullError;
     @FXML
     private Label nickError;
     @FXML
@@ -97,7 +96,6 @@ public class FXMLRegisterController implements Initializable {
     private void handleRegister(ActionEvent event) throws IOException {
 
         boolean nerror = true;
-        nullError.setVisible(false);
         nickError.setVisible(false);
         pasError.setVisible(false);
         telError.setVisible(false);
@@ -119,14 +117,10 @@ public class FXMLRegisterController implements Initializable {
         String as = "";
          try {
             club = getInstance();
-            club.setInitialData();
         } catch (ClubDAOException ex) {
             Logger.getLogger(FXMLSignUpController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if(as.equals(name) | as.equals(surname) | as.equals(nick) | as.equals(tel) | as.equals(password) | as.equals(password2)){
-            nullError.setVisible(true);
-            nerror = false;
-        }
+
         if(club.existsLogin(nick)){
             nickError.setText("Nickname already in use, try another");
             nickError.setVisible(true);
@@ -145,13 +139,13 @@ public class FXMLRegisterController implements Initializable {
             telError.setVisible(true);
             nerror = false;
         }
-        if(card.length() != 16 | card.length() != 0){
+        if(card.length() != 16 && !card.equals(as)){
             cardError.setVisible(true);
             nerror = false;
             
         }
-        
-        if(number.length() != 3 | number.length() != 0){
+        System.out.println(number.length());
+        if(number.length() != 3 && !number.equals(as)){
             cardError1.setVisible(true);
             nerror = false;
         }
@@ -168,16 +162,22 @@ public class FXMLRegisterController implements Initializable {
             passwordError.setVisible(true);
             nerror = false;
         }
-        int num = Integer.parseInt(number);
+        int num = 0;
+        try{
+            if(!number.equals("")) num = Integer.parseInt(number);
+        }catch(NumberFormatException e){
+            cardError1.setVisible(true);
+            nerror = false;
+        }
         if(nerror){
             try {
-                                System.out.println("Registrado3");
+                System.out.println("Registrado3");
                 Member b = club.registerMember(name, surname, tel, nick, password, card, num, im);
                 System.out.println("Registrado");
             } catch (ClubDAOException ex) {
                 Logger.getLogger(FXMLRegisterController.class.getName()).log(Level.SEVERE, null, ex);
             }
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pistas.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/login.fxml"));
         Parent root = loader.load();
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

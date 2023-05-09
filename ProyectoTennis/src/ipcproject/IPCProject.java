@@ -38,7 +38,7 @@ public class IPCProject extends Application {
         //     - configuracion del stage
         //     - se muestra el stage de manera no modal mediante el metodo show()
         stage.setScene(scene);
-        stage.setTitle("Tennis administrator master 2000 ULTRA");
+        stage.setTitle("Tennis administrator");
         stage.getIcons().add(new Image("/images/logo.png"));
         stage.show();
     }
