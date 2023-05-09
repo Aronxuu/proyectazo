@@ -76,9 +76,10 @@ public class FXMLSignUpController implements Initializable {
         } catch (ClubDAOException ex) {
             Logger.getLogger(FXMLSignUpController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try{
        Member b = club.getMemberByCredentials(login, pasword);
-
        if(b == null){
+           
             pwdError.setVisible(true);
        }else{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/pistas.fxml"));
@@ -90,6 +91,10 @@ public class FXMLSignUpController implements Initializable {
             stage.setScene(scene);
             stage.show();
        }
+        }catch(Exception e){
+            pwdError.setVisible(true);
+        }
+       
     }
    
     private void hideErrorMessage()

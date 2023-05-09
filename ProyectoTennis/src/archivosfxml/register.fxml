@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.FXMLRegisterController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.FXMLRegisterController">
    <top>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -43,7 +43,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="nameFiels">
+                              <TextField fx:id="nameField3">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -84,7 +84,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <PasswordField fx:id="passwordFiled">
+                              <PasswordField fx:id="passwordFiled3">
                                  <font>
                                     <Font size="20.0" />
                                  </font>

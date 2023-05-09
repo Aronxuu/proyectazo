@@ -65,11 +65,11 @@ public class FXMLRegisterController implements Initializable {
     private Image im;
     private Club club;
     @FXML
-    private TextField nameFiels;
-    @FXML
-    private PasswordField passwordFiled;
-    @FXML
     private PasswordField passwordFiled2;
+    @FXML
+    private TextField nameField3;
+    @FXML
+    private PasswordField passwordFiled3;
     //=========================================================
     // event handler, fired when button is clicked or 
     //                      when the button has the focus and enter is pressed
@@ -83,12 +83,12 @@ public class FXMLRegisterController implements Initializable {
         telError.setVisible(false);
         cardError.setVisible(false);
         cardError1.setVisible(false);
-        String name = nameField.getText();
+        String name = nameField3.getText();//AKI
         String surname = surnameField.getText();
         String nick = nickField.getText();
         String tel = telephoneField.getText();
-        String password = passwordField.getText();
-        String password2 = passwordField2.getText();
+        String password = passwordFiled3.getText();
+        String password2 = passwordFiled2.getText();//AKi
         String card = cardField.getText();
         String number = numberField.getText();
         String as = "";
