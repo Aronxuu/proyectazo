@@ -157,12 +157,12 @@ public class PistasController implements Initializable {
             System.out.println(loggeduser + " esto es 2");
             List<Booking> reser = club.getUserBookings(loggeduser);          
             int i = 10;
-            int j = reser.size()-1;
+            int j = 0;
             int tamaño = reser.size();
             while(i!=0 && tamaño!=0){    //Ns si sería == o equals.
                 listaPrincReservados.add(reser.get(j));
                 i--;
-                j--;
+                j++;
                 tamaño--;
             }
             
