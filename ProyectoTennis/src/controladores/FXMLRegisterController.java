@@ -70,6 +70,14 @@ public class FXMLRegisterController implements Initializable {
     private TextField nameField3;
     @FXML
     private PasswordField passwordFiled3;
+    @FXML
+    private Label nameError1;
+    @FXML
+    private Label passwordError;
+    @FXML
+    private Label surnameError;
+
+    private boolean hasValidCard = false;
     //=========================================================
     // event handler, fired when button is clicked or 
     //                      when the button has the focus and enter is pressed
@@ -83,6 +91,9 @@ public class FXMLRegisterController implements Initializable {
         telError.setVisible(false);
         cardError.setVisible(false);
         cardError1.setVisible(false);
+        surnameError.setVisible(false);
+        nameError1.setVisible(false);
+        passwordError.setVisible(false);
         String name = nameField3.getText();//AKI
         String surname = surnameField.getText();
         String nick = nickField.getText();
@@ -98,11 +109,17 @@ public class FXMLRegisterController implements Initializable {
         } catch (ClubDAOException ex) {
             Logger.getLogger(FXMLSignUpController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if(as.equals(name) | as.equals(surname) | as.equals(nick) | as.equals(tel) | as.equals(password) | as.equals(password2) | as.equals(card) | as.equals(number)){
+        if(as.equals(name) | as.equals(surname) | as.equals(nick) | as.equals(tel) | as.equals(password) | as.equals(password2)){
             nullError.setVisible(true);
             nerror = false;
         }
         if(club.existsLogin(nick)){
+            nickError.setText("Nickname already in use, try another");
+            nickError.setVisible(true);
+            nerror = false;
+        }
+        if(as.equals(nick)){
+            nickError.setText("Unvalid nickname");
             nickError.setVisible(true);
             nerror = false;
         }
@@ -114,12 +131,27 @@ public class FXMLRegisterController implements Initializable {
             telError.setVisible(true);
             nerror = false;
         }
-        if(card.length() != 16){
+        if(card.length() != 16 | card.length() != 0){
             cardError.setVisible(true);
             nerror = false;
+            
         }
-        if(number.length() != 3){
+        
+        if(number.length() != 3 | number.length() != 0){
             cardError1.setVisible(true);
+            nerror = false;
+        }
+        if(card.length()==16 && number.length() == 3){hasValidCard=true;}
+        if(as.equals(name)){
+            nameError1.setVisible(true);
+            nerror = false;
+        }
+        if(as.equals(surname)){
+            surnameError.setVisible(true);
+            nerror = false;
+        }
+        if(as.equals(password)){
+            passwordError.setVisible(true);
             nerror = false;
         }
         int num = Integer.parseInt(number);
