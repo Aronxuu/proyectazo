@@ -51,6 +51,8 @@ public class FXMLSignUpController implements Initializable {
     
     @FXML
     private Label emailError;
+    @FXML
+    private Label clubName;
     
     @FXML
     private void handleRegister(ActionEvent event) throws IOException {
@@ -130,6 +132,7 @@ public class FXMLSignUpController implements Initializable {
         } catch (ClubDAOException | IOException ex) {
             Logger.getLogger(PistasController.class.getName()).log(Level.SEVERE, null, ex);
         }
+         clubName.setText(club.getName());
         hideErrorMessage();
 
     } 
