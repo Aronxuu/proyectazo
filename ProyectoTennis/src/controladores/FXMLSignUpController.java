@@ -47,6 +47,8 @@ public class FXMLSignUpController implements Initializable {
     private Club club;
     
     public String login;
+    public String pasword;
+    
     @FXML
     private Label emailError;
     
@@ -62,7 +64,7 @@ public class FXMLSignUpController implements Initializable {
     }
     @FXML
     private void handleLogin(ActionEvent event) throws IOException {
-        String pasword = pwdInput.getText();
+        pasword = pwdInput.getText();
         login = emailInput.getText();
         System.out.println(pasword+login);
         try {
@@ -112,6 +114,12 @@ public class FXMLSignUpController implements Initializable {
     stage.show();
     }
 
+    public String getLogin(){
+        return login;
+    }
+    public String getPasword(){
+        return pasword;
+    }
     
     //=========================================================
     // you must initialize here all related with the object 
