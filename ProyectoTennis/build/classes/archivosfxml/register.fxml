@@ -12,296 +12,302 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="mainbackground" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.FXMLRegisterController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="mainbackground" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.FXMLRegisterController">
    <top>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #04763d;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="88.0" prefWidth="1280.0" style="-fx-background-color: #04763d;" text="Register" textFill="WHITE">
+            <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-background-color: #04763d;" text="Register" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="66.0" />
                </font>
                <HBox.margin>
-                  <Insets top="10.0" />
+                  <Insets left="20.0" top="10.0" />
                </HBox.margin>
             </Label>
          </children>
       </HBox>
    </top>
    <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <VBox BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="30.0" />
+         </BorderPane.margin>
          <children>
-            <VBox prefHeight="200.0" prefWidth="427.0">
+            <HBox maxHeight="400.0" minHeight="100.0" />
+            <HBox>
                <children>
-                  <HBox prefHeight="150.0">
-                     <VBox.margin>
-                        <Insets top="50.0" />
-                     </VBox.margin>
+                  <VBox>
                      <children>
-                        <VBox prefHeight="141.0" prefWidth="300.0">
+                        <HBox>
+                           <VBox.margin>
+                              <Insets top="50.0" />
+                           </VBox.margin>
                            <children>
-                              <Label text="Name:" textFill="WHITE">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="nameField3" prefHeight="44.0" prefWidth="300.0" promptText="Name">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </TextField>
-                              <Label fx:id="nameError1" text="Not a valid name" textFill="#ca0505" visible="false">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
+                              <VBox>
+                                 <children>
+                                    <Label text="Name:" textFill="WHITE">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="nameField3" maxHeight="40.0" maxWidth="300.0" minHeight="40.0" minWidth="200.0" prefHeight="40.0" prefWidth="300.0" promptText="Name">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label fx:id="nameError1" text="Not a valid name" textFill="#ca0505" visible="false">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <Label text="Username:" textFill="WHITE">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="nickField" maxHeight="40.0" maxWidth="300.0" minHeight="40.0" minWidth="200.0" prefHeight="40.0" prefWidth="300.0" promptText="Username">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label fx:id="nickError" text="Nickname already in use, try another" textFill="#ca0505" visible="false">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <Label text="Password:" textFill="WHITE">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <PasswordField fx:id="passwordFiled3" maxHeight="40.0" maxWidth="300.0" minHeight="40.0" minWidth="200.0" prefHeight="40.0" prefWidth="300.0">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </PasswordField>
+                                    <Label fx:id="passwordError" text="Not a valid password" textFill="#ca0505" visible="false">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <Label text="CreditCard:" textFill="WHITE">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="cardField" maxHeight="40.0" maxWidth="300.0" minHeight="40.0" minWidth="200.0" prefHeight="40.0" prefWidth="300.0" promptText="XXXXXXXXXXXX">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label fx:id="cardError" text="Not a valid credit card number" textFill="#ca0505" visible="false">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
                      </children>
-                  </HBox>
-                  <HBox prefHeight="150.0">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefWidth="100.0" />
+                  <VBox>
                      <children>
-                        <VBox prefWidth="300.0">
+                        <HBox>
+                           <VBox.margin>
+                              <Insets top="50.0" />
+                           </VBox.margin>
                            <children>
-                              <Label text="Username:" textFill="WHITE">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="nickField" prefHeight="44.0" prefWidth="300.0" promptText="Username">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </TextField>
-                              <Label fx:id="nickError" text="Nickname already in use, try another" textFill="#ca0505" visible="false">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
+                              <VBox>
+                                 <children>
+                                    <Label text="Surname:" textFill="WHITE">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="surnameField" maxHeight="40.0" maxWidth="300.0" minHeight="40.0" minWidth="200.0" prefHeight="40.0" prefWidth="300.0" promptText="Surname">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label fx:id="surnameError" text="Not a valid surname" textFill="#ca0505" visible="false">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <Label text="Telephone:" textFill="WHITE">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="telephoneField" maxHeight="40.0" maxWidth="300.0" minHeight="40.0" minWidth="200.0" prefHeight="40.0" prefWidth="300.0" promptText="XXXXXXXXX">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label fx:id="telError" text="Not a valid phone number" textFill="#ca0505" visible="false">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <Label text="Repeat your password:" textFill="WHITE">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <PasswordField fx:id="passwordFiled2" maxHeight="40.0" maxWidth="300.0" minHeight="40.0" minWidth="200.0" prefHeight="40.0" prefWidth="300.0">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </PasswordField>
+                                    <Label fx:id="pasError" text="The passwords aren't equal" textFill="#ca0505" visible="false">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <Label text="Security Number of the card:" textFill="WHITE">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="numberField" maxHeight="40.0" maxWidth="300.0" minHeight="40.0" minWidth="200.0" prefHeight="40.0" prefWidth="300.0" promptText="XXX">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label fx:id="cardError1" text="Not a valid security number" textFill="#ca0505" visible="false">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
                      </children>
-                  </HBox>
-                  <HBox prefHeight="142.0" prefWidth="398.0">
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" />
+                  <VBox>
                      <children>
-                        <VBox prefHeight="136.0" prefWidth="300.0">
-                           <children>
-                              <Label text="Password:" textFill="WHITE">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <PasswordField fx:id="passwordFiled3" prefHeight="44.0" prefWidth="300.0">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </PasswordField>
-                              <Label fx:id="passwordError" text="Not a valid password" textFill="#ca0505" visible="false">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </VBox>
+                        <Label text="Select your profile image:" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="50.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Button mnemonicParsing="false" onAction="#getImage" text="Click here to choose">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Label fx:id="imError" text="This file is not valid" textFill="#ca0505" visible="false">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="17.0" />
+                           </VBox.margin>
+                        </Label>
+                        <ImageView fx:id="userImage" fitHeight="216.0" fitWidth="241.0" pickOnBounds="true" preserveRatio="true">
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </ImageView>
                      </children>
-                  </HBox>
-                  <HBox prefHeight="150.0">
-                     <children>
-                        <VBox prefHeight="144.0" prefWidth="300.0">
-                           <children>
-                              <Label text="CreditCard:" textFill="WHITE">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="cardField" prefHeight="44.0" prefWidth="300.0" promptText="XXXXXXXXXXXX">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </TextField>
-                              <Label fx:id="cardError" text="Not a valid credit card number" textFill="#ca0505" visible="false">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </VBox>
                </children>
-               <HBox.margin>
-                  <Insets left="30.0" />
-               </HBox.margin>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="427.0">
+            </HBox>
+            <HBox maxWidth="200.0" minWidth="50.0" />
+            <HBox alignment="BOTTOM_LEFT">
                <children>
-                  <HBox prefHeight="150.0">
-                     <VBox.margin>
-                        <Insets top="50.0" />
-                     </VBox.margin>
-                     <children>
-                        <VBox>
-                           <children>
-                              <Label text="Surname:" textFill="WHITE">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="surnameField" promptText="Surname">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </TextField>
-                              <Label fx:id="surnameError" text="Not a valid surname" textFill="#ca0505" visible="false">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="150.0">
-                     <children>
-                        <VBox>
-                           <children>
-                              <Label text="Telephone:" textFill="WHITE">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="telephoneField" promptText="XXXXXXXXX">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </TextField>
-                              <Label fx:id="telError" text="Not a valid phone number" textFill="#ca0505" visible="false">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="150.0">
-                     <children>
-                        <VBox>
-                           <children>
-                              <Label text="Repeat your password:" textFill="WHITE">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <PasswordField fx:id="passwordFiled2">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </PasswordField>
-                              <Label fx:id="pasError" text="The passwords aren't equal" textFill="#ca0505" visible="false">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="150.0">
-                     <children>
-                        <VBox>
-                           <children>
-                              <Label text="Security Number of the card:" textFill="WHITE">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="numberField" promptText="XXX">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </TextField>
-                              <Label fx:id="cardError1" text="Not a valid security number" textFill="#ca0505" visible="false">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="426.0">
-               <children>
-                  <Label text="Select your profile image:" textFill="WHITE">
+                  <Button fx:id="register" mnemonicParsing="false" onAction="#handleRegister" style="-fx-background-color: #04763d;" text="Register" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
-                     <VBox.margin>
-                        <Insets top="50.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Button mnemonicParsing="false" onAction="#getImage" text="Click here to choose">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <font>
-                        <Font size="20.0" />
-                     </font>
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Label fx:id="imError" text="This file is not valid" textFill="#ca0505" visible="false">
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBack" style="-fx-background-color: #04763d;" text="Back" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
-                     <VBox.margin>
-                        <Insets left="17.0" />
-                     </VBox.margin>
-                  </Label>
-                  <ImageView fx:id="userImage" fitHeight="187.0" fitWidth="286.0" pickOnBounds="true" preserveRatio="true">
-                     <VBox.margin>
-                        <Insets top="70.0" />
-                     </VBox.margin>
-                  </ImageView>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </children>
-            </VBox>
+            </HBox>
          </children>
-         <BorderPane.margin>
-            <Insets left="30.0" />
-         </BorderPane.margin>
-      </HBox>
+      </VBox>
    </center>
-   <bottom>
-      <HBox alignment="BOTTOM_LEFT" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="register" mnemonicParsing="false" onAction="#handleRegister" prefWidth="107.0" style="-fx-background-color: #04763d;" text="Register" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="15.0" />
-               </HBox.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBack" prefHeight="44.0" prefWidth="107.0" style="-fx-background-color: #04763d;" text="Back" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-         </children>
-         <BorderPane.margin>
-            <Insets bottom="40.0" left="45.0" />
-         </BorderPane.margin>
-      </HBox>
-   </bottom>
 </BorderPane>

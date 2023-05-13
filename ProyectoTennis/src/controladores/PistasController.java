@@ -109,6 +109,8 @@ public class PistasController implements Initializable {
     private Booking b1,b2,b3,b4,b5,b6;
     private String hour;
     private String loggeduser;
+     private String pwd;
+     private int hour2;
     private MouseEvent updateevent;
    
     //=========================================================
@@ -120,8 +122,9 @@ public class PistasController implements Initializable {
 
     );
    
-    public void setLogin(String login){
+    public void setLogin(String login,String pass){
         loggeduser = login;
+        pwd = pass;
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -225,6 +228,7 @@ public class PistasController implements Initializable {
         int index = bookingsListView.getSelectionModel().getSelectedIndex();
         centerText.setText("CLICK ON A COURT:\n"+(9+index)+":00 - "+(9+index+1)+":00");
         hour = (9+index)+":00 - "+(9+index+1)+":00";
+        hour2=9+index;
         LocalDate forDay = dpBookingDay.valueProperty().get();
         System.out.println(forDay);
         List<Booking> l = club.getForDayBookings(forDay);
@@ -354,8 +358,7 @@ public class PistasController implements Initializable {
         reserve4.setText("");
         reserve5.setText("");
         reserve6.setText("");
-        
-        
+    
     }
 
     @FXML
@@ -423,7 +426,7 @@ public class PistasController implements Initializable {
          stage.initModality(Modality.APPLICATION_MODAL);
          stage.showAndWait();
             }else if(button.getOpacity()==yourBookedOpacity){//Si el botón está disponible
-         FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/archivosfxml/cancelarreserva.fxml"));
+            FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/archivosfxml/cancelarreserva.fxml"));
          Stage stage = new Stage();
          Parent root = miCargador.load();
          CancelarReservaController controlPopUp = miCargador.getController();
@@ -455,9 +458,35 @@ public class PistasController implements Initializable {
          stage.initModality(Modality.APPLICATION_MODAL);
          stage.showAndWait();
          updateSelection(updateevent);
-            }
-        }else{
             
+        }else if(button.getOpacity()==1){
+            FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/archivosfxml/hacerreserva.fxml"));
+         Stage stage = new Stage();
+         Parent root = miCargador.load();
+         HacerReservaController controlPopUp = miCargador.getController();
+         String court;
+        if (event.getSource() == button1) {
+            court = "0";
+        } else if (event.getSource() == button2) {
+            court = "1";
+        } else if (event.getSource() == button3) {
+            court = "2";
+        } else if (event.getSource() == button4) {
+            court = "3";
+        } else if (event.getSource() == button5) {
+            court = "4";
+        } else if (event.getSource() == button6) {
+            court = "5";
+        }else{court="";}
+         controlPopUp.initializePopUp(court,hour2,dpBookingDay.valueProperty().get(),club,loggeduser,pwd);
+         Scene scene = new Scene(root, 300, 200);
+         stage.setScene(scene);
+         stage.setTitle("Book a court");
+         stage.initModality(Modality.APPLICATION_MODAL);
+         stage.showAndWait();
+         updateSelection(updateevent);
+         initializeListMyBooking();
+            }
         }
         }else{
             System.out.println("Choose an hour");

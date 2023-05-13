@@ -83,7 +83,7 @@ public class FXMLSignUpController implements Initializable {
         loader.setControllerFactory(controllerClass -> {
 
         PistasController controller = new PistasController();
-        controller.setLogin(login);
+        controller.setLogin(login,pasword);
         return controller;
     
         });
