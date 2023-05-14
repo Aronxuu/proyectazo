@@ -42,7 +42,7 @@ import static model.Club.getInstance;
  *
  * @author aronx
  */
-public class PistasController implements Initializable {
+public class PistasController1 implements Initializable {
 
     @FXML
     private ImageView img11;
@@ -112,8 +112,7 @@ public class PistasController implements Initializable {
      private String pwd;
      private int hour2;
     private MouseEvent updateevent;
-    private int tiempo;
-   private LocalDate diaa;
+   
     //=========================================================
     // DEBEN conincidir los tipo del ListView y de la lista observable
     @FXML
@@ -133,9 +132,9 @@ public class PistasController implements Initializable {
         try {
             club = getInstance();
         } catch (ClubDAOException ex) {
-            Logger.getLogger(PistasController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PistasController1.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(PistasController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PistasController1.class.getName()).log(Level.SEVERE, null, ex);
         }
         clubname.setText(club.getName());
         dpBookingDay.setDayCellFactory((DatePicker picker) -> {
@@ -221,7 +220,6 @@ public class PistasController implements Initializable {
     @FXML
     private void updateSelection(MouseEvent event) {
         setCourtsGreen();
-        myBookingListView.getSelectionModel().select(-1);
         updateevent=event;
         
         
@@ -431,7 +429,7 @@ public class PistasController implements Initializable {
 
     @FXML
     private void clickedCourt(ActionEvent event) throws IOException {
-        if(bookingsListView.getSelectionModel().getSelectedIndex()!=-1 && myBookingListView.getSelectionModel().getSelectedIndex()==-1){
+        if(bookingsListView.getSelectionModel().getSelectedIndex()!=-1){
         if(event.getSource() instanceof Button){
             Button button = (Button)event.getSource();
             if(button.getOpacity()==disabledOpacity){//Si el botón no está disponible...
@@ -479,8 +477,6 @@ public class PistasController implements Initializable {
          stage.initModality(Modality.APPLICATION_MODAL);
          stage.showAndWait();
          updateSelection(updateevent);
-         
-         initializeListMyBooking();
             
         }else if(button.getOpacity()==1){
             FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/archivosfxml/hacerreserva.fxml"));
@@ -512,109 +508,7 @@ public class PistasController implements Initializable {
          initializeListMyBooking();
             }
         }
-        //----------------------------------
-        }else if(bookingsListView.getSelectionModel().getSelectedIndex()==-1 && myBookingListView.getSelectionModel().getSelectedIndex()!=-1){
-            if(event.getSource() instanceof Button){
-            Button button = (Button)event.getSource();
-            if(button.getOpacity()==disabledOpacity){//Si el botón no está disponible...
-                FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/archivosfxml/pistanodisponible.fxml"));
-                Stage stage = new Stage();
-                Parent root = miCargador.load();
-                PistaNoDisponibleController controlPopUp = miCargador.getController();
-                Member reservador = getMemberOfClickedCourt(event);
-                controlPopUp.initializePopUp(reservador);
-                Scene scene = new Scene(root, 300, 200);
-                stage.setScene(scene);
-                stage.setTitle("Court unavailable");
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.showAndWait();
-            
-            }else if(button.getOpacity()==yourBookedOpacity){//Si el botón está disponible
-                FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/archivosfxml/cancelarreserva.fxml"));
-                Stage stage = new Stage();
-                Parent root = miCargador.load();
-                CancelarReservaController controlPopUp = miCargador.getController();
-                String court;
-                Booking remove;
-                String day = "";
-                if (event.getSource() == button1) {
-                    court = b1.getFromTime().toString()+" | Court: 1";
-                    remove = b1;
-                    day = b1.getMadeForDay().toString();
-                } else if (event.getSource() == button2) {
-                    court = b2.getFromTime().toString()+" | Court: 2";
-                    remove = b2;
-                    day = b2.getMadeForDay().toString();
-                } else if (event.getSource() == button3) {
-                    court = b3.getFromTime().toString()+" | Court: 3";
-                    remove = b3;
-                    day = b3.getMadeForDay().toString();
-                } else if (event.getSource() == button4) {
-                    court = b4.getFromTime().toString()+" | Court: 4";
-                    remove = b4;
-                    day = b4.getMadeForDay().toString();
-                } else if (event.getSource() == button5) {
-                    court = b5.getFromTime().toString()+" | Court: 5";
-                    remove = b5;
-                    day = b5.getMadeForDay().toString();
-                } else if (event.getSource() == button6) {
-                    court = b6.getFromTime().toString()+" | Court: 6";
-                    remove = b6;
-                    day = b6.getMadeForDay().toString();
-                }else{court="";remove=null;}
-                controlPopUp.initializePopUp(court,day,remove,club);
-                Scene scene = new Scene(root, 300, 200);
-                stage.setScene(scene);
-                stage.setTitle("Court unavailable");
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.showAndWait();
-                int select = myBookingListView.getSelectionModel().getSelectedIndex();
-                updateSelection2(updateevent);
-                
-                
-                initializeListMyBooking();
-                myBookingListView.getSelectionModel().select(select);
-            
-            }else if(button.getOpacity()==1){
-                FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/archivosfxml/hacerreserva.fxml"));
-                Stage stage = new Stage();
-                Parent root = miCargador.load();
-                HacerReservaController controlPopUp = miCargador.getController();
-                String court;
-                int hora = 0;
-                if (event.getSource() == button1) {
-                    court = "0";
-                    //hora = b1.getFromTime().getHour();
-                } else if (event.getSource() == button2) {
-                    court = "1";
-                    //hora = b2.getFromTime().getHour();
-                } else if (event.getSource() == button3) {
-                    court = "2";
-                    //hora = b3.getFromTime().getHour();
-                } else if (event.getSource() == button4) {
-                    court = "3";
-                    //hora = b4.getFromTime().getHour();
-                } else if (event.getSource() == button5) {
-                    court = "4";
-                    //hora = b5.getFromTime().getHour();
-                } else if (event.getSource() == button6) {
-                    court = "5";
-                    //hora = b6.getFromTime().getHour();
-                }else{court="";}
-                System.out.println(tiempo + " esta es la hora");
-                controlPopUp.initializePopUp(court,tiempo,diaa,club,loggeduser,pwd);
-                Scene scene = new Scene(root, 300, 200);
-                stage.setScene(scene);
-                stage.setTitle("Book a court");
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.showAndWait();
-                int select = myBookingListView.getSelectionModel().getSelectedIndex();
-                updateSelection2(updateevent);
-                
-                initializeListMyBooking();
-                myBookingListView.getSelectionModel().select(select);
-            
-        }}}else{
+        }else{
             System.out.println("Choose an hour");
         }
     }
@@ -638,8 +532,8 @@ public class PistasController implements Initializable {
 
     @FXML
     private void updateSelection2(MouseEvent event) {
+System.out.println("Estamos aquí");
         setCourtsGreen();
-        bookingsListView.getSelectionModel().select(-1);
         
         List<Court> courts = club.getCourts();
         int sizec =courts.size();
@@ -670,110 +564,80 @@ public class PistasController implements Initializable {
             String urCourt = resHora.get(i).getCourt().getName();
             switch(urCourt){
                 case "0":
-                    tiempo = resHora.get(i).getFromTime().getHour();
-                    diaa = resHora.get(i).getMadeForDay();
                     member1 = resHora.get(i).getMember();
                     if(resHora.get(i).getMember().getNickName().equals(loggeduser)){
                         img1.setImage(new Image("/images/pistaazul.png"));
-                        button1.setOpacity(yourBookedOpacity);
-                        b1 = resHora.get(i);
                         if(resHora.get(i).getPaid()==true){
                             reserve1.setText("PAID");
                         }else{reserve1.setText("NOT PAID");}
                     }else{
                         img1.setImage(new Image("/images/pistaroja.png"));
                         reserve1.setText(member1.getNickName());
-                        button1.setOpacity(disabledOpacity);
                     }                   
                     System.out.println("funciona");
                     break;
                 case "1":
-                    tiempo = resHora.get(i).getFromTime().getHour();
-                    diaa = resHora.get(i).getMadeForDay();
                     member2 = resHora.get(i).getMember();
                     if(resHora.get(i).getMember().getNickName().equals(loggeduser)){
                         img2.setImage(new Image("/images/pistaazul.png"));
-                        button2.setOpacity(yourBookedOpacity);
-                        b2 = resHora.get(i);
                         if(resHora.get(i).getPaid()==true){
                             reserve2.setText("PAID");
                         }else{reserve2.setText("NOT PAID");}
                     }else{
                         img2.setImage(new Image("/images/pistaroja.png"));
                         reserve2.setText(member2.getNickName());
-                        button2.setOpacity(disabledOpacity);
                     }                   
                     System.out.println("funciona");
                     break;
                 case "2":
-                    tiempo = resHora.get(i).getFromTime().getHour();
-                    diaa = resHora.get(i).getMadeForDay();
                     member3 = resHora.get(i).getMember();
                     if(resHora.get(i).getMember().getNickName().equals(loggeduser)){
                         img3.setImage(new Image("/images/pistaazul.png"));
-                        button3.setOpacity(yourBookedOpacity);
-                        b3 = resHora.get(i);
                         if(resHora.get(i).getPaid()==true){
                             reserve3.setText("PAID");
                         }else{reserve3.setText("NOT PAID");}
                     }else{
                         img3.setImage(new Image("/images/pistaroja.png"));
                         reserve3.setText(member3.getNickName());
-                        button3.setOpacity(disabledOpacity);
                     }
                     System.out.println("funciona");
                     break;
                 case "3":
-                    tiempo = resHora.get(i).getFromTime().getHour();
-                    diaa = resHora.get(i).getMadeForDay();
                     member4 = resHora.get(i).getMember();
                     if(resHora.get(i).getMember().getNickName().equals(loggeduser)){
                         img4.setImage(new Image("/images/pistaazul.png"));
-                        button4.setOpacity(yourBookedOpacity);
-                        b4 = resHora.get(i);
                         if(resHora.get(i).getPaid()==true){
                             reserve4.setText("PAID");
                         }else{reserve4.setText("NOT PAID");}
                     }else{
                         img4.setImage(new Image("/images/pistaroja.png"));
                         reserve4.setText(member4.getNickName());
-                        button4.setOpacity(disabledOpacity);
                     }
                     System.out.println("funciona");
                     break;
                 case "4":
-                    tiempo = resHora.get(i).getFromTime().getHour();
-                    diaa = resHora.get(i).getMadeForDay();
                     member5 = resHora.get(i).getMember();
                     if(resHora.get(i).getMember().getNickName().equals(loggeduser)){
                         img5.setImage(new Image("/images/pistaazul.png"));
-                        button5.setOpacity(yourBookedOpacity);
-                        b5 = resHora.get(i);
                         if(resHora.get(i).getPaid()==true){
                             reserve5.setText("PAID");
                         }else{reserve5.setText("NOT PAID");}
                     }else{
                         img5.setImage(new Image("/images/pistaroja.png"));
                         reserve5.setText(member5.getNickName());
-                        button5.setOpacity(disabledOpacity);
                     }
                     System.out.println("funciona");
                     break;
                 case "5":
-                    tiempo = resHora.get(i).getFromTime().getHour();
-                    diaa = resHora.get(i).getMadeForDay();
                     member6 = resHora.get(i).getMember();
                     if(resHora.get(i).getMember().getNickName().equals(loggeduser)){
                         img6.setImage(new Image("/images/pistaazul.png"));
-                        button6.setOpacity(yourBookedOpacity);
-                        b6 = resHora.get(i);
                         if(resHora.get(i).getPaid()==true){
                             reserve6.setText("PAID");
                         }else{reserve6.setText("NOT PAID");}
                     }else{
                         img6.setImage(new Image("/images/pistaroja.png"));
                         reserve6.setText(member6.getNickName());
-                        button6.setOpacity(disabledOpacity);
                     }
                     System.out.println("funciona");
                     break;

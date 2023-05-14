@@ -139,15 +139,18 @@ public class FXMLRegisterController implements Initializable {
             telError.setVisible(true);
             nerror = false;
         }
+        if(!card.equals(as)){
         if((card.length() != 16 && !card.equals(as)) || !card.matches("[0-9]+")){
             cardError.setVisible(true);
             nerror = false;
-            
+        }
         }
         System.out.println(number.length());
+        if(!number.equals(as)){
         if((number.length() != 3 && !number.equals(as))  || !number.matches("[0-9]+")){
             cardError1.setVisible(true);
             nerror = false;
+        }
         }
         if(card.length()==16 && number.length() == 3 && number.matches("[0-9]+") && card.matches("[0-9]+")){hasValidCard=true;}
         if(as.equals(name)){

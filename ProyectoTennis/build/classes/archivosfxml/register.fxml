@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="mainbackground" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.FXMLRegisterController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="mainbackground" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.FXMLRegisterController">
    <top>
       <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #04763d;" BorderPane.alignment="CENTER">
          <children>
@@ -114,7 +114,7 @@
                            <children>
                               <VBox>
                                  <children>
-                                    <Label text="CreditCard:" textFill="WHITE">
+                                    <Label text="CreditCard (Optional):" textFill="WHITE">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -217,7 +217,7 @@
                            <children>
                               <VBox>
                                  <children>
-                                    <Label text="Security Number of the card:" textFill="WHITE">
+                                    <Label text="CVV (Optional):" textFill="WHITE">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
