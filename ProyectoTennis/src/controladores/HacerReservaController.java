@@ -64,7 +64,7 @@ public class HacerReservaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-
+        labelMessage.setText("You can not cancel the booking if there are \n only 24 hours remaining for the reserve");
 
     }    
 

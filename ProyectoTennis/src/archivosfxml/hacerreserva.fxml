@@ -26,7 +26,7 @@
                   <Insets left="20.0" right="20.0" />
                </VBox.margin>
             </HBox>
-            <Label fx:id="labelMessage" lineSpacing="4.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" textAlignment="CENTER" wrapText="true" />
+            <Label fx:id="labelMessage" alignment="CENTER" contentDisplay="CENTER" lineSpacing="4.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="262.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
             <HBox prefHeight="100.0" prefWidth="200.0" />
          </children>
       </VBox>

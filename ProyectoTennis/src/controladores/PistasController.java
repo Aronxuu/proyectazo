@@ -661,7 +661,7 @@ public class PistasController implements Initializable {
         }
         
         
-        centerText.setText("CLICK ON A COURT TO SEE\n MORE DETAILS");
+        centerText.setText("CLICK ON A COURT TO\n DELETE OR BOOK");
         
         
         
