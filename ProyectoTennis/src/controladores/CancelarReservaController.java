@@ -6,6 +6,8 @@
 package controladores;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,7 +28,6 @@ public class CancelarReservaController implements Initializable {
 
     @FXML
     private Button buttonClick;
-    @FXML
     private Label labelMessage;
 
     /**
@@ -39,6 +40,8 @@ public class CancelarReservaController implements Initializable {
     private Button removeButton;
     private Booking byeBooking;
     private Club c;
+    @FXML
+    private Label errorMessage;
     
     public void initializePopUp(String hour,String day,Booking booked,Club club){
         byeBooking = booked;
@@ -53,13 +56,19 @@ public class CancelarReservaController implements Initializable {
 
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        labelMessage.getScene().getWindow().hide();
+        bookedCourt.getScene().getWindow().hide();
     }
 
     @FXML
     private void removeAction(ActionEvent event) throws ClubDAOException {
+        System.out.println(byeBooking.getMadeForDay().toString()+LocalDateTime.now().plusDays(1)+byeBooking.getBookingDate().compareTo(LocalDateTime.now().plusDays(1)));
+        if(byeBooking.getMadeForDay().compareTo(LocalDate.now().plusDays(1))>0){
         c.removeBooking(byeBooking);
-        labelMessage.getScene().getWindow().hide();
+        bookedCourt.getScene().getWindow().hide();
+        }else{
+            errorMessage.setText("You can not remove the booking\n Motive: less than 24h remaining");
+            errorMessage.setVisible(true);
+        }
     }
     
 }
