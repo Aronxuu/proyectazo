@@ -156,7 +156,7 @@ public class PistasController implements Initializable {
     }    
 
         void initializeListMyBooking(){
-            
+                     myBookingListView.getItems().clear();
             List<Booking> reser = club.getUserBookings(loggeduser);
             int i = 10;
             int j = 0;
@@ -251,7 +251,10 @@ public class PistasController implements Initializable {
                    case "0":
                        member1 = b.getMember();
                        if(b.getMember().getNickName().equals(loggeduser)){
-                       img1.setImage(new Image("/images/pistaazul.png"));                           
+                       img1.setImage(new Image("/images/pistaazul.png"));  
+                       if(b.getPaid()==true){
+                            reserve1.setText("PAID");
+                        }else{reserve1.setText("NOT PAID");}
                        button1.setOpacity(yourBookedOpacity);
                        b1=b;
                        } else{
@@ -264,7 +267,10 @@ public class PistasController implements Initializable {
                     case "1":
                         member2 = b.getMember();
                         if(b.getMember().getNickName().equals(loggeduser)){
-                       img2.setImage(new Image("/images/pistaazul.png"));                           
+                       img2.setImage(new Image("/images/pistaazul.png")); 
+                       if(b.getPaid()==true){
+                            reserve2.setText("PAID");
+                        }else{reserve2.setText("NOT PAID");}
                        button2.setOpacity(yourBookedOpacity);    
                        b2=b;
                        } else{
@@ -277,7 +283,10 @@ public class PistasController implements Initializable {
                     case "2":
                         member3 = b.getMember();
                        if(b.getMember().getNickName().equals(loggeduser)){
-                       img3.setImage(new Image("/images/pistaazul.png"));                           
+                       img3.setImage(new Image("/images/pistaazul.png"));   
+                       if(b.getPaid()==true){
+                            reserve3.setText("PAID");
+                        }else{reserve3.setText("NOT PAID");}
                        button3.setOpacity(yourBookedOpacity);    
                        b3=b;
                        } else{
@@ -290,7 +299,10 @@ public class PistasController implements Initializable {
                     case "3":
                         member4 = b.getMember();
                        if(b.getMember().getNickName().equals(loggeduser)){
-                       img4.setImage(new Image("/images/pistaazul.png"));                           
+                       img4.setImage(new Image("/images/pistaazul.png")); 
+                       if(b.getPaid()==true){
+                            reserve4.setText("PAID");
+                        }else{reserve4.setText("NOT PAID");}
                        button4.setOpacity(yourBookedOpacity);    
                        b4=b;
                        } else{
@@ -303,7 +315,10 @@ public class PistasController implements Initializable {
                     case "4":
                         member5 = b.getMember();
                        if(b.getMember().getNickName().equals(loggeduser)){
-                       img5.setImage(new Image("/images/pistaazul.png"));                           
+                       img5.setImage(new Image("/images/pistaazul.png"));
+                       if(b.getPaid()==true){
+                            reserve5.setText("PAID");
+                        }else{reserve5.setText("NOT PAID");}
                        button5.setOpacity(yourBookedOpacity); 
                        b5=b;
                        } else{
@@ -315,8 +330,12 @@ public class PistasController implements Initializable {
                        break;
                     case "5":
                         member6 = b.getMember();
+                        
                        if(b.getMember().getNickName().equals(loggeduser)){
-                       img6.setImage(new Image("/images/pistaazul.png"));                           
+                       img6.setImage(new Image("/images/pistaazul.png"));  
+                       if(b.getPaid()==true){
+                            reserve6.setText("PAID");
+                        }else{reserve6.setText("NOT PAID");}
                        button6.setOpacity(yourBookedOpacity);    
                        b6=b;
                        } else{
@@ -358,7 +377,7 @@ public class PistasController implements Initializable {
         reserve4.setText("");
         reserve5.setText("");
         reserve6.setText("");
-    
+        
     }
 
     @FXML
@@ -485,6 +504,7 @@ public class PistasController implements Initializable {
          stage.initModality(Modality.APPLICATION_MODAL);
          stage.showAndWait();
          updateSelection(updateevent);
+
          initializeListMyBooking();
             }
         }
