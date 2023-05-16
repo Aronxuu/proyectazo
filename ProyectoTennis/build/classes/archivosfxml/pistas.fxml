@@ -23,16 +23,16 @@
    <children>
       <HBox alignment="CENTER_RIGHT" style="-fx-background-color: black;" VBox.vgrow="ALWAYS">
          <children>
-            <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="1166.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="106.0" prefWidth="1311.0">
                <children>
                   <Label fx:id="clubname" text="CourtName" textFill="WHITE">
                      <font>
-                        <Font name="Arial Rounded MT Bold" size="25.0" />
+                        <Font name="Arial Rounded MT Bold" size="67.0" />
                      </font>
                   </Label>
                </children>
                <HBox.margin>
-                  <Insets left="40.0" />
+                  <Insets left="69.0" />
                </HBox.margin>
             </VBox>
             <MenuButton mnemonicParsing="false" prefHeight="56.0" prefWidth="83.0">
@@ -52,6 +52,9 @@
                </HBox.margin>
             </MenuButton>
          </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
       </HBox>
       <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
          <children>

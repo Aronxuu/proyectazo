@@ -15,13 +15,13 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="mainbackground" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.PistasSinLoginController">
    <children>
-      <HBox alignment="TOP_RIGHT" style="-fx-background-color: black;" VBox.vgrow="ALWAYS">
+      <HBox alignment="TOP_RIGHT" prefHeight="94.0" prefWidth="1280.0" style="-fx-background-color: black;" VBox.vgrow="ALWAYS">
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="106.0" prefWidth="1120.0">
                <children>
                   <Label fx:id="clubname" text="CourtName" textFill="WHITE">
                      <font>
-                        <Font name="Arial Rounded MT Bold" size="18.0" />
+                        <Font name="Arial Rounded MT Bold" size="67.0" />
                      </font>
                   </Label>
                </children>
@@ -35,10 +35,13 @@
                   </ImageView>
                </graphic>
                <HBox.margin>
-                  <Insets right="30.0" top="30.0" />
+                  <Insets right="30.0" top="24.0" />
                </HBox.margin>
             </Button>
          </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
       </HBox>
       <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
          <children>
