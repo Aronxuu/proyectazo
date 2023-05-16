@@ -52,7 +52,7 @@ public class IPCProject extends Application {
         Club club= Club.getInstance(); 
         //==================================
         //Clean the file club.db
-        club.setInitialData();
+        //club.setInitialData();
         
         //===================================
         // club data:
@@ -62,7 +62,7 @@ public class IPCProject extends Application {
         }
         //===================================
         // add simple data:
-        club.addSimpleData();
+        //club.addSimpleData();
         
         //===================================
         // users        
