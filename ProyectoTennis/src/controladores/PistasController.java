@@ -20,6 +20,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.ImageCursor;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -28,6 +29,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -100,7 +102,6 @@ public class PistasController implements Initializable {
     );
     private final double disabledOpacity = 0.99;
     private final double yourBookedOpacity = 1.5;
-    @FXML
     private Button buttonProfile;
     private Label courtname;
     @FXML
@@ -122,13 +123,19 @@ public class PistasController implements Initializable {
     private final ObservableList<Booking> listaPrincReservados = FXCollections.observableArrayList(
 
     );
+    @FXML
+    private MenuItem logOut;
+    @FXML
+    private MenuItem MyData;
    
     public void setLogin(String login,String pass){
         loggeduser = login;
         pwd = pass;
+        
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
 
         try {
             club = getInstance();
@@ -150,8 +157,10 @@ public class PistasController implements Initializable {
         });
 
          dpBookingDay.setValue(LocalDate.now());
+        img11.setImage(club.getMemberByCredentials(loggeduser, pwd).getImage());
         initializelist();
         initializeListMyBooking();
+        
             
 
     }    
@@ -424,7 +433,6 @@ public class PistasController implements Initializable {
         }
     }
 
-    @FXML
     private void enterProfileButton(MouseEvent event) {
         buttonProfile.setCursor(Cursor.HAND);
     }
@@ -784,7 +792,30 @@ public class PistasController implements Initializable {
 
 
     @FXML
-    private void clickedDelete(ActionEvent event) {
+    private void logOutAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/login.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage)((Node)button1).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void myDataAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/edit.fxml"));
+        loader.setControllerFactory(controllerClass -> {
+
+        FXMLEditController controller = new FXMLEditController();
+        controller.setLogin(loggeduser,pwd);
+        return controller;
+    
+        });
+        Parent root = loader.load();
+        Stage stage = (Stage)((Node)button1).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

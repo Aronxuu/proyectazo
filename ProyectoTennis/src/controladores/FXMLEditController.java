@@ -90,6 +90,8 @@ public class FXMLEditController implements Initializable {
     private Button backButton;
     @FXML
     private Label imError;
+    private String loggeduser;
+    private String pwd;
     //=========================================================
     // event handler, fired when button is clicked or 
     //                      when the button has the focus and enter is pressed
@@ -212,6 +214,11 @@ public class FXMLEditController implements Initializable {
     
     //=========================================================
     // you must initialize here all related with the object 
+    public void setLogin(String login,String pass){
+        loggeduser = login;
+        pwd = pass;
+        
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -222,8 +229,8 @@ public class FXMLEditController implements Initializable {
         }
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/controladores/FXMLSignUpController.java"));
         FXMLSignUpController otherController = loader.getController();
-        String a = otherController.getLogin();
-        String b = otherController.getPasword();
+        String a = loggeduser;
+        String b = pwd;
         Member user = club.getMemberByCredentials(a, b);
         nameField3.setText(user.getName());
         surnameField.setText(user.getSurname());
