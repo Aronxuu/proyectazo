@@ -33,6 +33,7 @@ import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 import model.Club;
 import static model.Club.getInstance;
+import model.ClubDAO;
 import model.ClubDAOException;
 import model.Member;
 
@@ -90,14 +91,15 @@ public class FXMLEditController implements Initializable {
     private Button backButton;
     @FXML
     private Label imError;
-    private String loggeduser;
-    private String pwd;
+    public String loggeduser;
+    public String pwd;
+    private Member user;
     //=========================================================
     // event handler, fired when button is clicked or 
     //                      when the button has the focus and enter is pressed
     @FXML
     private void handleRegister(ActionEvent event) throws IOException {
-
+        
         boolean nerror = true;
         nickError.setVisible(false);
         pasError.setVisible(false);
@@ -108,13 +110,13 @@ public class FXMLEditController implements Initializable {
         nameError1.setVisible(false);
         passwordError.setVisible(false);
         
-                Image image = chooseImage(); 
-        String name = nameField3.getText();//AKI
+        Image image = chooseImage(); 
+        String name = nameField3.getText();
         String surname = surnameField.getText();
         String nick = nickField.getText();
         String tel = telephoneField.getText();
         String password = passwordFiled3.getText();
-        String password2 = passwordFiled2.getText();//AKi
+        String password2 = passwordFiled2.getText();
         String card = cardField.getText();
         String number = numberField.getText();
         String as = "";
@@ -124,16 +126,7 @@ public class FXMLEditController implements Initializable {
             Logger.getLogger(FXMLSignUpController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        if(club.existsLogin(nick)){
-            nickError.setText("Nickname already in use, try another");
-            nickError.setVisible(true);
-            nerror = false;
-        }
-        if(as.equals(nick)){
-            nickError.setText("Unvalid nickname");
-            nickError.setVisible(true);
-            nerror = false;
-        }
+       
         if(!password.equals(password2)){
             pasError.setVisible(true);
             nerror = false;
@@ -142,13 +135,12 @@ public class FXMLEditController implements Initializable {
             telError.setVisible(true);
             nerror = false;
         }
-        if((card.length() != 16 && !card.equals(as)) || !card.matches("[0-9]+")){
+        if((card.length() != 16 && !card.equals(as)) && !card.matches("[0-9]+")){
             cardError.setVisible(true);
             nerror = false;
             
         }
-        System.out.println(number.length());
-        if((number.length() != 3 && !number.equals(as))  || !number.matches("[0-9]+")){
+        if((number.length() != 3 && !number.equals(as))  && !number.matches("[0-9]+")){
             cardError1.setVisible(true);
             nerror = false;
         }
@@ -173,14 +165,22 @@ public class FXMLEditController implements Initializable {
             nerror = false;
         }
         if(nerror){
-            try {
-                System.out.println("Registrado3");
-                Member b = club.registerMember(name, surname, tel, nick, password, card, num, im);
-                System.out.println("Registrado");
-            } catch (ClubDAOException ex) {
-                Logger.getLogger(FXMLRegisterController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/login.fxml"));
+                user.setName(name);
+                user.setSurname(surname);
+                user.setNickName(nick);
+                user.setPassword(password);
+                user.setCreditCard(card);
+                user.setSvc(num);
+                user.setImage(image);
+                loggeduser = nick;
+                pwd = password;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/pistas.fxml"));
+        loader.setControllerFactory(controllerClass -> {
+        PistasController controller = new PistasController();
+        controller.setLogin(loggeduser,pwd);
+        return controller;
+        
+        });
         Parent root = loader.load();
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -227,31 +227,43 @@ public class FXMLEditController implements Initializable {
         } catch (ClubDAOException | IOException ex) {
             Logger.getLogger(PistasController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/controladores/FXMLSignUpController.java"));
-        FXMLSignUpController otherController = loader.getController();
+        
         String a = loggeduser;
         String b = pwd;
-        Member user = club.getMemberByCredentials(a, b);
+        userImage.setImage(club.getMemberByCredentials(a, b).getImage());
+        im = club.getMemberByCredentials(a, b).getImage();
+        user = club.getMemberByCredentials(loggeduser, pwd);
         nameField3.setText(user.getName());
         surnameField.setText(user.getSurname());
         nickField.setText(a);
+        nickField.setDisable(true);
         telephoneField.setText(user.getTelephone());
         passwordFiled3.setText(b);
         passwordFiled2.setText(b);
         cardField.setText(user.getCreditCard());
-        numberField.setText(String.valueOf(user.getSvc()));
-        
+        if(user.getSvc()!=0){numberField.setText(String.valueOf(user.getSvc()));}
+        loggeduser = a;
+        pwd = b;
     }    
 
     @FXML
     private void handleBack(ActionEvent event) throws IOException {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/login.fxml"));
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/pistas.fxml"));
+    loader.setControllerFactory(controllerClass -> {
+
+        PistasController controller = new PistasController();
+        controller.setLogin(loggeduser,pwd);
+        return controller;
+        
+        });
     Parent root = loader.load();
     Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
     Scene scene = new Scene(root);
     stage.setScene(scene);
     stage.show();
     }
+
+  
 
 
 
