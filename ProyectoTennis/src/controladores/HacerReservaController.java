@@ -85,7 +85,10 @@ public class HacerReservaController implements Initializable {
         }
         }
         System.out.println(LocalDateTime.now().toString()+day+LocalTime.of(hour,0)+c.hasCreditCard(login)+courto.getName()+logged.getNickName());
-        c.registerBooking(LocalDateTime.now(), day, LocalTime.of(hour, 0), c.hasCreditCard(login), courto, logged);
+        Booking b = c.registerBooking(LocalDateTime.now(), day, LocalTime.of(hour, 0),c.hasCreditCard(login), courto, logged);
+        
+        System.out.println(c.hasCreditCard(login)+"Objeto:"+b.getPaid()+b.getMember().getNickName());
+        b.setPaid(c.hasCreditCard(login));
         
         labelMessage.getScene().getWindow().hide();
     }
