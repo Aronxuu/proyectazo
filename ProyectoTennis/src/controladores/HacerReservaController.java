@@ -84,13 +84,29 @@ public class HacerReservaController implements Initializable {
                 courto = courts.get(i);
         }
         }
-        System.out.println(LocalDateTime.now().toString()+day+LocalTime.of(hour,0)+c.hasCreditCard(login)+courto.getName()+logged.getNickName());
+        List<Booking> books = c.getCourtBookings(court, day);
+        sizec =books.size();
+        int num = 0;
+        while(num<sizec){
+            
+            if(books.get(num).getFromTime().equals(LocalTime.of(hour,0))){
+                break;
+           }
+            num++;
+        }
+        
+        if(num>=2 && books.get(num-2)!=null && books.get(num-1)!=null && books.get(num-1).getMember().equals(logged) && books.get(num-2).getMember().equals(logged)&&books.get(num-1).getFromTime().equals(LocalTime.of(hour-1,0)) && books.get(num-2).getFromTime().equals(LocalTime.of(hour-2,0))){
+        labelMessage.setText("You can not book this court \n Motive: 2 consecutive hours in this court");
+            }else{
+            System.out.println(LocalDateTime.now().toString()+day+LocalTime.of(hour,0)+c.hasCreditCard(login)+courto.getName()+logged.getNickName());
         Booking b = c.registerBooking(LocalDateTime.now(), day, LocalTime.of(hour, 0),c.hasCreditCard(login), courto, logged);
         
         System.out.println(c.hasCreditCard(login)+"Objeto:"+b.getPaid()+b.getMember().getNickName());
         b.setPaid(c.hasCreditCard(login));
         System.out.println(b.getPaid());
         labelMessage.getScene().getWindow().hide();
+            
+        }
     }
     
 }
