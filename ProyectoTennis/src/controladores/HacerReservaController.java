@@ -89,7 +89,7 @@ public class HacerReservaController implements Initializable {
         
         System.out.println(c.hasCreditCard(login)+"Objeto:"+b.getPaid()+b.getMember().getNickName());
         b.setPaid(c.hasCreditCard(login));
-        
+        System.out.println(b.getPaid());
         labelMessage.getScene().getWindow().hide();
     }
     

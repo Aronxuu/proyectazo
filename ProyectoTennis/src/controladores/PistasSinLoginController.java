@@ -251,7 +251,12 @@ public class PistasSinLoginController implements Initializable {
         button4.setOpacity(1);
         button5.setOpacity(1);
         button6.setOpacity(1);
-        
+                reserve1.setText("");
+        reserve2.setText("");
+        reserve3.setText("");
+        reserve4.setText("");
+        reserve5.setText("");
+        reserve6.setText("");
         
     }
 
