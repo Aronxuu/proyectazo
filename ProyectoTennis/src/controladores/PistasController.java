@@ -120,9 +120,7 @@ public class PistasController implements Initializable {
     @FXML
     private ListView<Booking> myBookingListView;
     
-    private final ObservableList<Booking> listaPrincReservados = FXCollections.observableArrayList(
-
-    );
+    private final ObservableList<Booking> listaPrincReservados = FXCollections.observableArrayList();
     @FXML
     private MenuItem logOut;
     @FXML
@@ -263,7 +261,7 @@ public class PistasController implements Initializable {
                        member1 = b.getMember();
                        if(b.getMember().getNickName().equals(loggeduser)){
                        img1.setImage(new Image("/images/pistaazul.png"));  
-                       if(club.hasCreditCard(b.getMember().getNickName())){
+                       if(b.getPaid()){
                             reserve1.setText("PAID");
                         }else{reserve1.setText("NOT PAID");}
                        button1.setOpacity(yourBookedOpacity);
@@ -279,7 +277,7 @@ public class PistasController implements Initializable {
                         member2 = b.getMember();
                         if(b.getMember().getNickName().equals(loggeduser)){
                        img2.setImage(new Image("/images/pistaazul.png")); 
-                       if(club.hasCreditCard(b.getMember().getNickName())){
+                       if(b.getPaid()){
                             reserve2.setText("PAID");
                         }else{reserve2.setText("NOT PAID");}
                        button2.setOpacity(yourBookedOpacity);    
@@ -295,7 +293,7 @@ public class PistasController implements Initializable {
                         member3 = b.getMember();
                        if(b.getMember().getNickName().equals(loggeduser)){
                        img3.setImage(new Image("/images/pistaazul.png"));   
-                       if(club.hasCreditCard(b.getMember().getNickName())){
+                       if(b.getPaid()){
                             reserve3.setText("PAID");
                         }else{reserve3.setText("NOT PAID");}
                        button3.setOpacity(yourBookedOpacity);    
@@ -311,7 +309,7 @@ public class PistasController implements Initializable {
                         member4 = b.getMember();
                        if(b.getMember().getNickName().equals(loggeduser)){
                        img4.setImage(new Image("/images/pistaazul.png")); 
-                       if(club.hasCreditCard(b.getMember().getNickName())){
+                       if(b.getPaid()){
                             reserve4.setText("PAID");
                         }else{reserve4.setText("NOT PAID");}
                        button4.setOpacity(yourBookedOpacity);    
@@ -327,7 +325,7 @@ public class PistasController implements Initializable {
                         member5 = b.getMember();
                        if(b.getMember().getNickName().equals(loggeduser)){
                        img5.setImage(new Image("/images/pistaazul.png"));
-                       if(club.hasCreditCard(b.getMember().getNickName())){
+                       if(b.getPaid()){
                             reserve5.setText("PAID");
                         }else{reserve5.setText("NOT PAID");}
                        button5.setOpacity(yourBookedOpacity); 
@@ -344,7 +342,7 @@ public class PistasController implements Initializable {
                         
                        if(b.getMember().getNickName().equals(loggeduser)){
                        img6.setImage(new Image("/images/pistaazul.png"));  
-                       if(club.hasCreditCard(b.getMember().getNickName())){
+                       if(b.getPaid()){
                             reserve6.setText("PAID");
                         }else{reserve6.setText("NOT PAID");}
                        button6.setOpacity(yourBookedOpacity);    
@@ -685,7 +683,7 @@ public class PistasController implements Initializable {
                         img1.setImage(new Image("/images/pistaazul.png"));
                         button1.setOpacity(yourBookedOpacity);
                         b1 = resHora.get(i);
-                        if(club.hasCreditCard(resHora.get(i).getMember().getNickName())){
+                        if(b1.getPaid()){
                             reserve1.setText("PAID");
                         }else{reserve1.setText("NOT PAID");}
                     }else{
@@ -703,7 +701,7 @@ public class PistasController implements Initializable {
                         img2.setImage(new Image("/images/pistaazul.png"));
                         button2.setOpacity(yourBookedOpacity);
                         b2 = resHora.get(i);
-                        if(club.hasCreditCard(resHora.get(i).getMember().getNickName())){
+                        if(b2.getPaid()){
                             reserve2.setText("PAID");
                         }else{reserve2.setText("NOT PAID");}
                     }else{
@@ -721,7 +719,7 @@ public class PistasController implements Initializable {
                         img3.setImage(new Image("/images/pistaazul.png"));
                         button3.setOpacity(yourBookedOpacity);
                         b3 = resHora.get(i);
-                        if(club.hasCreditCard(resHora.get(i).getMember().getNickName())){
+                        if(b3.getPaid()){
                             reserve3.setText("PAID");
                         }else{reserve3.setText("NOT PAID");}
                     }else{
@@ -739,7 +737,7 @@ public class PistasController implements Initializable {
                         img4.setImage(new Image("/images/pistaazul.png"));
                         button4.setOpacity(yourBookedOpacity);
                         b4 = resHora.get(i);
-                        if(club.hasCreditCard(resHora.get(i).getMember().getNickName())){
+                        if(b4.getPaid()){
                             reserve4.setText("PAID");
                         }else{reserve4.setText("NOT PAID");}
                     }else{
@@ -757,7 +755,7 @@ public class PistasController implements Initializable {
                         img5.setImage(new Image("/images/pistaazul.png"));
                         button5.setOpacity(yourBookedOpacity);
                         b5 = resHora.get(i);
-                        if(club.hasCreditCard(resHora.get(i).getMember().getNickName())){
+                        if(b5.getPaid()){
                             reserve5.setText("PAID");
                         }else{reserve5.setText("NOT PAID");}
                     }else{
@@ -775,7 +773,7 @@ public class PistasController implements Initializable {
                         img6.setImage(new Image("/images/pistaazul.png"));
                         button6.setOpacity(yourBookedOpacity);
                         b6 = resHora.get(i);
-                        if(club.hasCreditCard(resHora.get(i).getMember().getNickName())){
+                        if(b6.getPaid()){
                             reserve6.setText("PAID");
                         }else{reserve6.setText("NOT PAID");}
                     }else{
