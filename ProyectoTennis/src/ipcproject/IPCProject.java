@@ -38,7 +38,7 @@ public class IPCProject extends Application {
         //     - configuracion del stage
         //     - se muestra el stage de manera no modal mediante el metodo show()
         stage.setScene(scene);
-        stage.setTitle("Tennis administrator");
+        stage.setTitle("GreenBall Club");
         stage.getIcons().add(new Image("/images/logo.png"));
         stage.show();
     }
@@ -53,17 +53,13 @@ public class IPCProject extends Application {
         //==================================
         //Clean the file club.db
         //club.setInitialData();
-        
         //===================================
         // club data:
         System.out.println("Club name: "+ club.getName());
-        for (Court court : club.getCourts()) {
-            System.out.println("court:" + court.getName());
-        }
+        
         //===================================
         // add simple data:
         //club.addSimpleData();
-        
         //===================================
         // users        
         for (Member member : club.getMembers()) {
@@ -71,15 +67,7 @@ public class IPCProject extends Application {
         }
         
         //===================================
-        // bookings now + 2 days
-        System.out.println("Bookings after 2 days");
-        List<Booking> forDayBookings = club.getForDayBookings(LocalDate.now().plusDays(2));
-        for (Booking booking : forDayBookings) {
-              System.out.println("booking:" + booking.getMember().getNickName()+
-                      ", " + booking.getCourt().getName()+ ", "+
-                      booking.getMadeForDay().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)) +
-                      ", "+booking.getFromTime().format(DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)));
-        }   
+      
 
         //PARA ARRIBA ES PARA LLENAR LA BASE DE DATOS SE PUEDE BORRAR ASUMO
         

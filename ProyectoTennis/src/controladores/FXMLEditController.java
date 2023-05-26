@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -186,6 +187,10 @@ public class FXMLEditController implements Initializable {
                 user.setImage(image);
                 loggeduser = nick;
                 pwd = password;
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Modificación Exitosa");
+                alert.setHeaderText("Datos actualizados correctamente");
+                alert.show();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/pistas.fxml"));
         loader.setControllerFactory(controllerClass -> {
         PistasController controller = new PistasController();

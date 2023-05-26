@@ -139,7 +139,7 @@
                   </VBox>
                   <VBox alignment="CENTER_LEFT" GridPane.rowIndex="3">
                      <children>
-                        <Label text="Credit Card (optional):" textFill="WHITE">
+                        <Label text="Credit Card (Optional):" textFill="WHITE">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -205,7 +205,7 @@
                   </VBox>
                   <VBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <children>
-                        <Label text="CVV:" textFill="WHITE">
+                        <Label text="CSC (Optional):" textFill="WHITE">
                            <font>
                               <Font size="20.0" />
                            </font>

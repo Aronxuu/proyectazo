@@ -55,7 +55,7 @@
                            <font>
                               <Font size="20.0" />
                            </font></Label>
-                        <TextField fx:id="emailInput" minHeight="40.0" minWidth="370.0" promptText="Username">
+                        <TextField fx:id="emailInput" minHeight="40.0" minWidth="370.0" onKeyPressed="#enterPulsado" promptText="Username">
                            <VBox.margin>
                               <Insets left="10.0" top="10.0" />
                            </VBox.margin>
@@ -70,7 +70,7 @@
                               <Insets bottom="10.0" left="10.0" />
                            </VBox.margin>
                         </Label>
-                        <PasswordField fx:id="pwdInput" minHeight="40.0" minWidth="370.0" promptText="Password">
+                        <PasswordField fx:id="pwdInput" minHeight="40.0" minWidth="370.0" onKeyPressed="#enterPulsado" promptText="Password">
                            <VBox.margin>
                               <Insets left="10.0" />
                            </VBox.margin>
@@ -86,7 +86,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="Login" alignment="CENTER" mnemonicParsing="false" onAction="#handleLogin" style="-fx-background-color: #04763d;" text="Login" textFill="WHITE" VBox.vgrow="ALWAYS">
+                        <Button fx:id="Login" alignment="CENTER" mnemonicParsing="false" onAction="#handleLogin" onKeyPressed="#enterPulsado" style="-fx-background-color: #04763d;" text="Login" textFill="WHITE" VBox.vgrow="ALWAYS">
                            <font>
                               <Font size="20.0" />
                            </font>

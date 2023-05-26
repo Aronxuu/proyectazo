@@ -23,6 +23,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.*;
 import model.*;
@@ -136,6 +138,46 @@ public class FXMLSignUpController implements Initializable {
         hideErrorMessage();
 
     } 
+
+    @FXML
+    private void enterPulsado(KeyEvent event) throws IOException {
+         if (event.getCode() == KeyCode.ENTER) {
+        pasword = pwdInput.getText();
+        login = emailInput.getText();
+        System.out.println(pasword+login);
+        try {
+            club = getInstance();
+
+        } catch (ClubDAOException ex) {
+            Logger.getLogger(FXMLSignUpController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try{
+       Member b = club.getMemberByCredentials(login, pasword);
+       if(b == null){
+           
+            pwdError.setVisible(true);
+       }else{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/archivosfxml/pistas.fxml"));
+        loader.setControllerFactory(controllerClass -> {
+
+        PistasController controller = new PistasController();
+        controller.setLogin(login,pasword);
+        return controller;
+    
+        });
+        Parent root = loader.load();
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+       }
+        }catch(Exception e){
+            pwdError.setVisible(true);
+        }
+       
+        
+    }
+    }
    
     
 }
