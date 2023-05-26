@@ -48,7 +48,7 @@
                   </ImageView>
                </graphic>
                <HBox.margin>
-                  <Insets right="30.0" />
+                  <Insets right="40.0" />
                </HBox.margin>
             </MenuButton>
          </children>

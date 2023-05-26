@@ -61,7 +61,7 @@ public class CancelarReservaController implements Initializable {
 
     @FXML
     private void removeAction(ActionEvent event) throws ClubDAOException {
-        System.out.println(byeBooking.getMadeForDay().toString()+LocalDateTime.now().plusDays(1)+byeBooking.getBookingDate().compareTo(LocalDateTime.now().plusDays(1)));
+        //System.out.println(byeBooking.getMadeForDay().toString()+LocalDateTime.now().plusDays(1)+byeBooking.getBookingDate().compareTo(LocalDateTime.now().plusDays(1)));
         if(byeBooking.getMadeForDay().compareTo(LocalDate.now().plusDays(1))>0){
         c.removeBooking(byeBooking);
         bookedCourt.getScene().getWindow().hide();

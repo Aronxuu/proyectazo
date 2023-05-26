@@ -161,7 +161,7 @@ public class FXMLRegisterController implements Initializable {
             nerror = false;
             }
         }
-        System.out.println(number.length());
+        //System.out.println(number.length());
         
         if(card.length()==16 && number.length() == 3 && number.matches("[0-9]+") && card.matches("[0-9]+")){hasValidCard=true;}
         if(as.equals(name)){
@@ -185,9 +185,9 @@ public class FXMLRegisterController implements Initializable {
         }
         if(nerror){
             try {
-                System.out.println("Registrado3");
+                //System.out.println("Registrado3");
                 Member b = club.registerMember(name, surname, tel, nick, password, card, num, im);
-                System.out.println("Registrado");
+                //System.out.println("Registrado");
             } catch (ClubDAOException ex) {
                 Logger.getLogger(FXMLRegisterController.class.getName()).log(Level.SEVERE, null, ex);
             }

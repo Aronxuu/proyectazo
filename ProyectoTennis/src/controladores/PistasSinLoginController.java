@@ -158,12 +158,12 @@ public class PistasSinLoginController implements Initializable {
     private void updateSelection(MouseEvent event) {
         setCourtsGreen();
         
-        System.out.println(bookingsListView.getSelectionModel().getSelectedIndex());
+        //System.out.println(bookingsListView.getSelectionModel().getSelectedIndex());
         int index = bookingsListView.getSelectionModel().getSelectedIndex();
         centerText.setText("CLICK ON A COURT:\n"+(9+index)+":00 - "+(9+index+1)+":00");
         
         LocalDate today = LocalDate.now();;
-        System.out.println(today);
+        //System.out.println(today);
         List<Booking> l = club.getForDayBookings(today);
         int size =l.size();
         List<Court> courts = club.getCourts();
@@ -174,7 +174,7 @@ public class PistasSinLoginController implements Initializable {
             courts.get(i).setName(Integer.toString(i));
         }
 
-        System.out.println(size);
+        //System.out.println(size);
         for(int i = 0; i<size;i++){
             
             Booking b =l.get(i);
@@ -206,7 +206,7 @@ public class PistasSinLoginController implements Initializable {
                        img4.setImage(new Image("/images/pistaroja.png"));
                        //button4.setDisable(true);
                        member4 = b.getMember();
-                       System.out.println(member4.getNickName());
+                       //System.out.println(member4.getNickName());
                        button4.setOpacity(disabledOpacity);
                        reserve4.setText(member4.getNickName());
                        break;
@@ -313,7 +313,7 @@ public class PistasSinLoginController implements Initializable {
         if(event.getSource() instanceof Button){
             Button unavailable = (Button)event.getSource();
             if(unavailable.getOpacity()==disabledOpacity){//Si el botón no está disponible...
-            System.out.println("Hour chosen");
+            //System.out.println("Hour chosen");
             
          FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/archivosfxml/pistanodisponible.fxml"));
          Stage stage = new Stage();
@@ -331,7 +331,7 @@ public class PistasSinLoginController implements Initializable {
             }
         }
         }else{
-            System.out.println("Choose an hour");
+            //System.out.println("Choose an hour");
         }
     }
 

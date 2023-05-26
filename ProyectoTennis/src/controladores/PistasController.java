@@ -233,13 +233,13 @@ public class PistasController implements Initializable {
         
         
         
-        System.out.println(bookingsListView.getSelectionModel().getSelectedIndex());
+        //System.out.println(bookingsListView.getSelectionModel().getSelectedIndex());
         int index = bookingsListView.getSelectionModel().getSelectedIndex();
-        centerText.setText("CLICK ON A COURT:\n"+(9+index)+":00 - "+(9+index+1)+":00");
+        centerText.setText("CLICK ON A COURT TO BOOK:\n"+(9+index)+":00 - "+(9+index+1)+":00");
         hour = (9+index)+":00 - "+(9+index+1)+":00";
         hour2=9+index;
         LocalDate forDay = dpBookingDay.valueProperty().get();
-        System.out.println(forDay);
+        //System.out.println(forDay);
         List<Booking> l = club.getForDayBookings(forDay);
         int size =l.size();
         List<Court> courts = club.getCourts();
@@ -250,7 +250,7 @@ public class PistasController implements Initializable {
             courts.get(i).setName(Integer.toString(i));
         }
 
-        System.out.println(size);
+        //System.out.println(size);
         for(int i = 0; i<size;i++){
             
             Booking b =l.get(i);
@@ -607,7 +607,7 @@ public class PistasController implements Initializable {
                     court = "5";
                     //hora = b6.getFromTime().getHour();
                 }else{court="";}
-                System.out.println(tiempo + " esta es la hora");
+                //System.out.println(tiempo + " esta es la hora");
                 controlPopUp.initializePopUp(court,tiempo,diaa,club,loggeduser,pwd);
                 Scene scene = new Scene(root, 300, 200);
                 stage.setScene(scene);
@@ -621,7 +621,7 @@ public class PistasController implements Initializable {
                 myBookingListView.getSelectionModel().select(select);
             
         }}}else{
-            System.out.println("Choose an hour");
+            //System.out.println("Choose an hour");
         }
     }
 
@@ -655,7 +655,7 @@ public class PistasController implements Initializable {
             courts.get(i).setName(Integer.toString(i));
         }
         
-        System.out.println("El índice es " + myBookingListView.getSelectionModel().getSelectedIndex());
+        //System.out.println("El índice es " + myBookingListView.getSelectionModel().getSelectedIndex());
         Booking item = myBookingListView.getSelectionModel().getSelectedItem();
         List<Booking> resEseDia = club.getForDayBookings(item.getMadeForDay());
         List<Booking> resHora = new ArrayList<>();
@@ -745,7 +745,7 @@ public class PistasController implements Initializable {
                         reserve4.setText(member4.getNickName());
                         button4.setOpacity(disabledOpacity);
                     }
-                    System.out.println("funciona");
+                    //System.out.println("funciona");
                     break;
                 case "4":
                     tiempo = resHora.get(i).getFromTime().getHour();
@@ -763,7 +763,7 @@ public class PistasController implements Initializable {
                         reserve5.setText(member5.getNickName());
                         button5.setOpacity(disabledOpacity);
                     }
-                    System.out.println("funciona");
+                    //System.out.println("funciona");
                     break;
                 case "5":
                     tiempo = resHora.get(i).getFromTime().getHour();
@@ -781,7 +781,7 @@ public class PistasController implements Initializable {
                         reserve6.setText(member6.getNickName());
                         button6.setOpacity(disabledOpacity);
                     }
-                    System.out.println("funciona");
+                    //System.out.println("funciona");
                     break;
             
             }

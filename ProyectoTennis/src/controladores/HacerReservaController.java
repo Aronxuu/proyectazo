@@ -111,12 +111,12 @@ public class HacerReservaController implements Initializable {
             }else if(hour2!=-1 && hour3!=-1 && books.get(hour3).getMember().equals(logged) && books.get(hour2).getMember().equals(logged)&&books.get(hour3).getFromTime().equals(LocalTime.of(hour+1,0)) && books.get(hour2).getFromTime().equals(LocalTime.of(hour-1,0))){
               labelMessage.setText("You can not book this court \n You have 2 consecutive hours in this court");   
             }else{
-            System.out.println(LocalDateTime.now().toString()+day+LocalTime.of(hour,0)+c.hasCreditCard(login)+courto.getName()+logged.getNickName());
+            //System.out.println(LocalDateTime.now().toString()+day+LocalTime.of(hour,0)+c.hasCreditCard(login)+courto.getName()+logged.getNickName());
         Booking b = c.registerBooking(LocalDateTime.now(), day, LocalTime.of(hour, 0),c.hasCreditCard(login), courto, logged);
         
-        System.out.println(c.hasCreditCard(login)+"Objeto:"+b.getPaid()+b.getMember().getNickName());
+        //System.out.println(c.hasCreditCard(login)+"Objeto:"+b.getPaid()+b.getMember().getNickName());
         b.setPaid(c.hasCreditCard(login));
-        System.out.println(b.getPaid());
+        //System.out.println(b.getPaid());
         labelMessage.getScene().getWindow().hide();
             
         }
