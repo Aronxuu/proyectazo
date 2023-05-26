@@ -77,7 +77,7 @@ public class HacerReservaController implements Initializable {
     private void removeAction(ActionEvent event) throws ClubDAOException {
         List<Court> courts = c.getCourts();
         int sizec =courts.size();
-        
+        int hour1 = -1,hour2= -1,hour3= -1,hour4= -1;
         for(int i = 0; i<sizec;i++){
             
             if(courts.get(i).getName().equals(court)){
@@ -89,14 +89,27 @@ public class HacerReservaController implements Initializable {
         int num = 0;
         while(num<sizec){
             
-            if(books.get(num).getFromTime().equals(LocalTime.of(hour,0))){
-                break;
+            if(books.get(num).getFromTime().equals(LocalTime.of(hour-2,0))){
+                hour1 =num;
+           }
+            if(books.get(num).getFromTime().equals(LocalTime.of(hour-1,0))){
+                hour2 =num;
+           }
+            if(books.get(num).getFromTime().equals(LocalTime.of(hour+1,0))){
+                hour3 =num;
+           }
+            if(books.get(num).getFromTime().equals(LocalTime.of(hour+2,0))){
+                hour4 =num;
            }
             num++;
         }
         
-        if(num>=2 && books.get(num-2)!=null && books.get(num-1)!=null && books.get(num-1).getMember().equals(logged) && books.get(num-2).getMember().equals(logged)&&books.get(num-1).getFromTime().equals(LocalTime.of(hour-1,0)) && books.get(num-2).getFromTime().equals(LocalTime.of(hour-2,0))){
-        labelMessage.setText("You can not book this court \n Motive: 2 consecutive hours in this court");
+        if(num>=2 && hour1!=-1 && hour2!=-1 && books.get(hour2).getMember().equals(logged) && books.get(hour1).getMember().equals(logged)&&books.get(hour2).getFromTime().equals(LocalTime.of(hour-1,0)) && books.get(hour1).getFromTime().equals(LocalTime.of(hour-2,0))){
+              labelMessage.setText("You can not book this court \n You have 2 consecutive hours in this court");  
+            }else if(hour3!=-1 && hour4!=-1 && books.get(hour3).getMember().equals(logged) && books.get(hour4).getMember().equals(logged)&&books.get(hour3).getFromTime().equals(LocalTime.of(hour+1,0)) && books.get(hour4).getFromTime().equals(LocalTime.of(hour+2,0))){
+              labelMessage.setText("You can not book this court \n You have 2 consecutive hours in this court");  
+            }else if(hour2!=-1 && hour3!=-1 && books.get(hour3).getMember().equals(logged) && books.get(hour2).getMember().equals(logged)&&books.get(hour3).getFromTime().equals(LocalTime.of(hour+1,0)) && books.get(hour2).getFromTime().equals(LocalTime.of(hour-1,0))){
+              labelMessage.setText("You can not book this court \n You have 2 consecutive hours in this court");   
             }else{
             System.out.println(LocalDateTime.now().toString()+day+LocalTime.of(hour,0)+c.hasCreditCard(login)+courto.getName()+logged.getNickName());
         Booking b = c.registerBooking(LocalDateTime.now(), day, LocalTime.of(hour, 0),c.hasCreditCard(login), courto, logged);
