@@ -135,16 +135,28 @@ public class FXMLEditController implements Initializable {
             telError.setVisible(true);
             nerror = false;
         }
-        if((card.length() != 16 && !card.equals(as)) && !card.matches("[0-9]+")){
+        if(!card.equals(as) && !number.equals(as)){
+        if(((card.length() != 16 && !card.equals(as)) || !card.matches("[0-9]+")) || ((number.length() != 3 && !number.equals(as))  || !number.matches("[0-9]+"))){
             cardError.setVisible(true);
             nerror = false;
-            
-        }
-        if((number.length() != 3 && !number.equals(as))  && !number.matches("[0-9]+")){
             cardError1.setVisible(true);
             nerror = false;
         }
-        if(card.length()==16 && number.length() == 3 && number.matches("[0-9]+") && card.matches("[0-9]+")){hasValidCard=true;}
+        }else{
+            if(card.equals(as) && !number.equals(as)){
+                cardError.setVisible(true);
+            nerror = false;
+            cardError1.setVisible(true);
+            nerror = false;
+            }
+            
+            if(!card.equals(as) && number.equals(as)){
+                cardError.setVisible(true);
+            nerror = false;
+            cardError1.setVisible(true);
+            nerror = false;
+            }
+        }
         if(as.equals(name)){
             nameError1.setVisible(true);
             nerror = false;
